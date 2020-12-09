@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:06:33 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/09 22:53:20 by user42           ###   ########.fr       */
+/*   Updated: 2020/12/09 23:46:08 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ int				main(int ac, char **av)
 	W = 1024;
 	if (!(pixel_tab = ft_init_pixel_tab(H, W)))
 		return (ft_error(-1));
-	//ft_parse(scene, ...)
+	//ft_parse(scene, camera, ...)
 	ft_save_bmp(pixel_tab, H, W);
 }
