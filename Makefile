@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2020/12/09 23:14:16 by user42           ###   ########.fr        #
+#    Updated: 2020/12/09 23:32:39 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ MLXPATH = ./mlx/
 MLXNAME = $(MLXPATH)libmlx.a
 
 SRCS = main.c \
-	   ft_save_bmp.c
+	   ft_save_bmp.c \
+	   ft_utils.c
 
 INCLUDE = miniRT.h
 
@@ -39,6 +40,7 @@ RM	 = rm -rf
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFTM) $(MLXM)
+	$(GCC) $(OBJS) -o $(NAME) $(LDFLAGS)
 	$(info miniRT compiled !)
 
 $(LIBFTM):
@@ -50,6 +52,10 @@ $(MLXM):
 $(OBJS_PATH)%.o : %.c
 	@mkdir $(OBJS_PATH) 2> /dev/null || true
 	@$(CC) -I $(INCLUDE) -c $< -o $@
+
+libft:	$(LIBFTM)
+
+mlx:	$(MLXM)
 
 clean:
 	$(RM) $(OBJS)
@@ -63,4 +69,4 @@ fclean: clean
 
 re: fclean $(NAME)
 
-.PHONY: all, clean, fclean, re
+.PHONY: all, clean, fclean, re, libft, mlx
