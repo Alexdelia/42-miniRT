@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_miniRT.h                                        :+:      :+:    :+:   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <adelille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/06 18:02:06 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/09 22:55:24 by user42           ###   ########.fr       */
+/*   Created: 2020/12/09 22:31:43 by user42            #+#    #+#             */
+/*   Updated: 2020/12/09 22:41:16 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#include "ft_miniRT.h"
 
-# include "libft/libft.h"
-# include "mlx/mlx.h"
-
-#include <fcntl.h>
-
-void	ft_save_bmp(unsigned int *data, int H, int W);
-
-int		ft_error(int type);
-
-#endif
+int	ft_error(int type)
+{
+	if (type == -1)
+	{
+		ft_putstr_fd("malloc error, 1);
+		ft_putstr_fd("miniRT stop and free all the allocated memories", 1);
+	}
+}

@@ -6,15 +6,15 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:06:33 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/09 07:45:32 by adelille         ###   ########.fr       */
+/*   Updated: 2020/12/09 22:53:20 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "ft_miniRT.h"
 
-unsigned char	ft_init_pixel_tab(/*H, W*/)
+unsigned int	*ft_init_pixel_tab(int H, int W)
 {
-	unsigned char	*pixel_tab;
+	unsigned int	*pixel_tab;
 	int				i;
 	int				j;
 
@@ -29,18 +29,26 @@ unsigned char	ft_init_pixel_tab(/*H, W*/)
 			pixel_tab[(i * W + j) * 3 + 0] = 255;
 			pixel_tab[(i * W + j) * 3 + 1] = 0;
 			pixel_tab[(i * W + j) * 3 + 2] = 0;
+			j++;
 		}
-		i++
+		i++;
 	}
+	return (pixel_tab);
 }
 
-int				main(int ac, char **av);
+int				main(int ac, char **av)
 {
+	(void)ac;
+	(void)av;
 // need to check if scene got camera, an ambiance light and a resolution
-	unsigned char	*pixel_tab;
+	unsigned int	*pixel_tab;
+	unsigned int	H;
+	unsigned int	W;
 
-	if (!pixel_tab = ft_init_pixel_tab(/*H, W*/))
-		return (ft_error(/*malloc*/));
+	H = 1024;
+	W = 1024;
+	if (!(pixel_tab = ft_init_pixel_tab(H, W)))
+		return (ft_error(-1));
 	//ft_parse(scene, ...)
-	ft_save_bmp(out.bmp, &pixel_tab[0], W, H);
+	ft_save_bmp(pixel_tab, H, W);
 }
