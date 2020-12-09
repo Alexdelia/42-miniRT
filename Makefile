@@ -6,18 +6,22 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2020/12/09 07:45:29 by adelille         ###   ########.fr        #
+#    Updated: 2020/12/09 22:03:43 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = miniRT
 
 LBPATH = ./libft/
-
 LBNAME = $(LBPATH)libft.a
+
+MLXPATH = ./mlx/
+MLXNAME = $(MLXPATH)libmlx.a
 
 SRCS = main.c \
 	   ft_save_bmp.c
+
+INCLUDE = miniRT.h
 
 OBJS_NAME = ${SRCS:.c=.o}
 
@@ -34,25 +38,29 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@make -C $(LBPATH)
 	@cp $(LBNAME) $(NAME)
-	@ar rc $(NAME) $(OBJS)
-	@ranlib $(NAME)
+	@make -C $(MLXPATH)
+	@cp $(MLXNAME) $(NAME)
 	$(info miniRT compiled !)
 
 $(OBJS_PATH)%.o : %.c
 	@mkdir $(OBJS_PATH) 2> /dev/null || true
-	@$(CC) -I ft_printf.h -c $< -o $@
+	@$(CC) -I $(INCLUDE) -c $< -o $@
 
 clean:
 	@make clean -C $(LBPATH)
+	@male clean -C $(MLXPATH)
 	@$(RM) $(OBJS)
 	@make fclean -C $(LBPATH)
+	@make fclean -C $(MLXPATH)
 	@rmdir $(OBJS_PATH) 2> /dev/null || true
 
 fclean: clean
 	@$(RM) $(NAME)
 	@make fclean -C $(LBPATH)
+	@make fclean -C $(MLXPATH)
 
 re: fclean all
 	@make re -C $(LBPATH)
+	@make re -C $(MLXPATH)
 
 .PHONY: all, clean, fclean, re
