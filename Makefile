@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2020/12/09 23:32:39 by user42           ###   ########.fr        #
+#    Updated: 2020/12/10 07:06:58 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,14 +33,16 @@ OBJS = $(addprefix $(OBJS_PATH), $(OBJS_NAME))
 CC	 =	gcc -Wall -Werror -Wextra
 
 # GRAPHICAL LFGLAGS (for linux):
-LDFLAGS		+=	-lmlx -lX11 -lXext
+# LDFLAGS		+=	-lmlx -lX11 -lXext
 
 RM	 = rm -rf
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFTM) $(MLXM)
-	$(GCC) $(OBJS) -o $(NAME) $(LDFLAGS)
+	@make -C $(LBPATH)
+	@make -C $(MLXPATH)
+	$(CC) $(OBJS) $(LBNAME) $(MLXNAME) -o $(NAME) $(LDFLAGS)
 	$(info miniRT compiled !)
 
 $(LIBFTM):
