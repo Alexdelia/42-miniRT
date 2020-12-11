@@ -6,50 +6,48 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:06:33 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/11 01:36:49 by user42           ###   ########.fr       */
+/*   Updated: 2020/12/11 03:34:27 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_miniRT.h"
 
-unsigned int	*ft_init_pixel_tab(int H, int W)
+int		ft_init_t_pixel(t_pixel** pixels, int H, int W)
 {
-	unsigned int	*pixel_tab;
 	int				i;
 	int				j;
 
-	if (!(pixel_tab = malloc(sizeof(unsigned char *) * H * W * 3)))
-		return (NULL);
+	if (!(pixels = malloc(sizeof(t_pixel) * H * W)))
+		return (-1);
 	i = 0;
 	while (i <= H)
 	{
 		j = 0;
 		while (j <= W)
 		{
-			pixel_tab[(i * W + j) * 3 + 0] = 2000;
-			pixel_tab[(i * W + j) * 3 + 1] = 2000;
-			pixel_tab[(i * W + j) * 3 + 2] = 2000;
+			pixels[i][j]->R = 255;
+			pixels[i][j]->G = 0;
+			pixels[i][j]->B = 0;
 			j++;
 		}
 		i++;
 	}
-	return (pixel_tab);
+	return (0);
 }
 
-int				main(int ac, char **av)
+int		main(int ac, char **av)
 {
 	(void)ac;
 	(void)av;
 // need to check if scene got camera, an ambiance light and a resolution
-	unsigned int	*pixel_tab;
 	unsigned int	H;
 	unsigned int	W;
 
 	H = 1024;
 	W = 1024;
-	if (!(pixel_tab = ft_init_pixel_tab(H, W)))
-		return (ft_error(-1));
+	if ((ft_init_t_pixel(t_pixel** pixels, H, W)) == -1)
+		return (ft_error("", -1));
 	//ft_parse(scene, camera, ...)
-	ft_save_bmp(pixel_tab, H, W);
-	free(pixel_tab);
+	ft_save_bmp(pixels, H, W);
+	free(pixels);
 }

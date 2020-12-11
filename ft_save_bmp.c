@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 07:15:58 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/09 07:37:22 by adelille         ###   ########.fr       */
+/*   Updated: 2020/12/11 03:22:22 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,35 +53,40 @@ static void		ft_bmpfileinfo(unsigned char *bmpfileinfo, int H, int W)
 	bmpfileinfo[15] = 0;
 }
 
-static void		ft_write_data(unsigned int *data, int H, int W, int fd)
+static void		ft_write_data(t_pixel** pixels, int H, int W, int fd)
 {
-	int		i;
-	int		j;
+	unsigned int			row;
+	unsigned int			pixelBytesPerRow;
+	unsigned int			paddingBytesPerRow;
+	static unsigned char	zeroes[3];
 
-	i = 0;
-	while (i < H)
+	row = 0;
+	pixelBytesPerRow = W * sizeof(t_pixel);
+	paddingBytesPerRow = (4 - (pixelBytesPerRow % 4)) % 4;
+	zeroes = {0, 0, 0};
+	while (row < H)
 	{
-		j = 0;
-		while (j < W)
-			write(fd, data + (i * W + j++), 4);
-		i++;
+		write(fd, pixels[row], pixelBytesPerRow);
+		write(fd, zeroes, paddingBytesPerRow);
+		row++;
 	}
 }
 
-void			ft_save_bmp(unsigned int *data, int H, int W)
+int				ft_save_bmp(unsigned int *data, int H, int W)
 {
 	int				fd;
 	unsigned char	header[14];
 	unsigned char	bmpfileinfo[40];
 
 	if ((fd = open("minirt.bmp", O_CREAT | O_WRONLY | O_TRUNC, 0644)) == -1)
-		return ;
+		return(ft_error("Failed to save image as miniRT.bmp", 0));
 	ft_memset(header, 0, 14);
 	ft_memset(bmpfileinfo, 0, 40);
 	ft_header(header, W, H);
 	ft_bmpfileinfo(bmpfileinfo, W, H);
 	write(fd, header, 14);
 	write(fd, bmpfileinfo, 40);
-	ft_write_data(data, W, H, fd);
+	ft_write_data(pixels, W, H, fd);
 	close(fd);
+	return (0);
 }
