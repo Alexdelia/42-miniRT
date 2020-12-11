@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:06:33 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/09 23:46:08 by user42           ###   ########.fr       */
+/*   Updated: 2020/12/11 01:36:49 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ unsigned int	*ft_init_pixel_tab(int H, int W)
 	if (!(pixel_tab = malloc(sizeof(unsigned char *) * H * W * 3)))
 		return (NULL);
 	i = 0;
-	j = 0;
 	while (i <= H)
 	{
+		j = 0;
 		while (j <= W)
 		{
-			pixel_tab[(i * W + j) * 3 + 0] = 255;
-			pixel_tab[(i * W + j) * 3 + 1] = 0;
-			pixel_tab[(i * W + j) * 3 + 2] = 0;
+			pixel_tab[(i * W + j) * 3 + 0] = 2000;
+			pixel_tab[(i * W + j) * 3 + 1] = 2000;
+			pixel_tab[(i * W + j) * 3 + 2] = 2000;
 			j++;
 		}
 		i++;
@@ -51,4 +51,5 @@ int				main(int ac, char **av)
 		return (ft_error(-1));
 	//ft_parse(scene, camera, ...)
 	ft_save_bmp(pixel_tab, H, W);
+	free(pixel_tab);
 }
