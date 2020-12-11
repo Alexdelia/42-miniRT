@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 07:15:58 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/11 03:22:22 by adelille         ###   ########.fr       */
+/*   Updated: 2020/12/11 04:25:49 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,26 +53,19 @@ static void		ft_bmpfileinfo(unsigned char *bmpfileinfo, int H, int W)
 	bmpfileinfo[15] = 0;
 }
 
-static void		ft_write_data(t_pixel** pixels, int H, int W, int fd)
+static void		ft_write_data(t_pixel *pixels, int H, int W, int fd)
 {
-	unsigned int			row;
-	unsigned int			pixelBytesPerRow;
-	unsigned int			paddingBytesPerRow;
-	static unsigned char	zeroes[3];
+	unsigned int			pixelBytes;
+	unsigned int			paddingBytes;
+	static unsigned char	zeroes[3] = {0, 0, 0};
 
-	row = 0;
-	pixelBytesPerRow = W * sizeof(t_pixel);
-	paddingBytesPerRow = (4 - (pixelBytesPerRow % 4)) % 4;
-	zeroes = {0, 0, 0};
-	while (row < H)
-	{
-		write(fd, pixels[row], pixelBytesPerRow);
-		write(fd, zeroes, paddingBytesPerRow);
-		row++;
-	}
+	pixelBytes = W * H * sizeof(t_pixel);
+	paddingBytes = (4 - (pixelBytes % 4)) % 4;
+	write(fd, pixels, pixelBytes);
+	write(fd, zeroes, paddingBytes);
 }
 
-int				ft_save_bmp(unsigned int *data, int H, int W)
+int				ft_save_bmp(t_pixel *pixels, int H, int W)
 {
 	int				fd;
 	unsigned char	header[14];

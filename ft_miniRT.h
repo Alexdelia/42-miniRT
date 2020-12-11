@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:02:06 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/11 03:27:35 by adelille         ###   ########.fr       */
+/*   Updated: 2020/12/11 04:26:38 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct	s_pixel
 	unsigned char	R;
 }				t_pixel;
 
-void	ft_save_bmp(t_pixel** pixels, int H, int W);
+int		ft_save_bmp(t_pixel *pixels, int H, int W);
 
 int		ft_error(char *text, int type);
 
