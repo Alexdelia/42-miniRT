@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:06:33 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/11 04:28:51 by user42           ###   ########.fr       */
+/*   Updated: 2020/12/12 09:16:45 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,20 @@ t_pixel		*ft_init_t_pixel(int H, int W)
 	return (pixels);
 }
 
+int			ft_render(pixels, H, W, av)
+{
+	if (av[1] == "-save" || av[2] == "-save")
+		ft_save_bmp(pixels, H, W);
+	if (av[1] == "-png" || av[2] == "-png")
+		// ft_save_png
+	if (ft_mlx_init(pixels, H, W) == -1)
+		// handle possible error
+	return (0);
+}
+
 int			main(int ac, char **av)
 {
 	(void)ac;
-	(void)av;
 // need to check if scene got camera, an ambiance light and a resolution
 	unsigned int	H;
 	unsigned int	W;
@@ -47,7 +57,7 @@ int			main(int ac, char **av)
 	if (!(pixels = ft_init_t_pixel(H, W)))
 		return (1);
 	//ft_parse(scene, camera, ...)
-	ft_save_bmp(pixels, H, W);
+	ft_render(pixels, H, W, av);
 	free(pixels);
 	return (0);
 }

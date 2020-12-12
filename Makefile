@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2020/12/10 07:06:58 by user42           ###   ########.fr        #
+#    Updated: 2020/12/12 09:18:06 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ MLXNAME = $(MLXPATH)libmlx.a
 
 SRCS = main.c \
 	   ft_save_bmp.c \
+	   ft_mlx.c \
 	   ft_utils.c
 
 INCLUDE = miniRT.h
