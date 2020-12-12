@@ -6,13 +6,13 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:06:33 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/12 09:16:45 by adelille         ###   ########.fr       */
+/*   Updated: 2020/12/12 09:49:51 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_miniRT.h"
 
-t_pixel		*ft_init_t_pixel(int H, int W)
+t_pixel			*ft_init_t_pixel(int H, int W)
 {
 	int				i;
 	t_pixel			*pixels;
@@ -33,14 +33,15 @@ t_pixel		*ft_init_t_pixel(int H, int W)
 	return (pixels);
 }
 
-int			ft_render(pixels, H, W, av)
+int			ft_render(t_pixel *pixels, int H, int W, char **av)
 {
-	if (av[1] == "-save" || av[2] == "-save")
+	if (av[1] == (char *)"-save" || av[2] == (char *)"-save")
 		ft_save_bmp(pixels, H, W);
-	if (av[1] == "-png" || av[2] == "-png")
+	if (av[1] == (char *)"-png" || av[2] == (char *)"-png")
+		ft_putstr_fd("the -png fonction hasn't been code yet\n", 1);
 		// ft_save_png
 	if (ft_mlx_init(pixels, H, W) == -1)
-		// handle possible error
+		return (ft_error("mlx return -1 for some reason\n", 0));
 	return (0);
 }
 

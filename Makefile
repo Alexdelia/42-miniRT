@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2020/12/12 09:18:06 by adelille         ###   ########.fr        #
+#    Updated: 2020/12/12 09:58:47 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ OBJS = $(addprefix $(OBJS_PATH), $(OBJS_NAME))
 CC	 =	gcc -Wall -Werror -Wextra
 
 # GRAPHICAL LFGLAGS (for linux):
-# LDFLAGS		+=	-lmlx -lX11 -lXext
+LDFLAGS		+=	-lmlx -lX11 -lXext
 
 RM	 = rm -rf
 
