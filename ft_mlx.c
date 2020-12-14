@@ -6,22 +6,51 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:13:37 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/12 10:01:06 by user42           ###   ########.fr       */
+/*   Updated: 2020/12/14 10:24:18 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_miniRT.h"
 
-int	ft_mlx_init(t_pixel *pixels, int H, int W)
+static int	ft_color_math(t_pixel *pixels, int i)
+{
+	return (pixels[i].T * 256 * 256 * 256)
+				+ (pixels[i].R * 256 * 256)
+				+ (pixels[i].G * 256)
+				+ (pixels[i].B);
+}
+
+static int	ft_mlx_fill_pixel(t_pixel *pixels, int H, int W,
+		void *mlx_ptr, void *win_ptr)
+{
+	/* int for color is like 	| 	0 		|	R		|	G		|	B	|
+	**							1111 1111	1111 1111	1111 1111	1111 1111
+	** so 0 255 128 60	= 00000000 11111111 10000000 00111100
+	** or				= 16 744 508
+	** 0 * 256 * 256 * 256	+
+	** R * 256 * 256		+
+	** G * 256				+
+	** B					+=
+	*/
+
+	int		i;
+	
+	i = -1;
+	while (++i <= H * W)
+		mlx_pixel_put (mlx_ptr, win_ptr, (i / H), (i % H),
+				ft_color_math(pixels, i));
+	return (0);
+}
+
+int			ft_mlx_init(t_pixel *pixels, int H, int W)
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
 
 	mlx_ptr = mlx_init();
 	win_ptr = mlx_new_window(mlx_ptr, W, H, "MiniRT");
+	ft_mlx_fill_pixel(pixels, H, W, mlx_ptr, win_ptr);
 	mlx_loop(mlx_ptr);
-	if (pixels[0].R == 255)
-		ft_putstr_fd("pixels[0].R == 255", 1);
-	mlx_destroy_window(mlx_ptr, win_ptr);
+	// mlx_destroy_window(mlx_ptr, win_ptr);
 	return (0);
 }

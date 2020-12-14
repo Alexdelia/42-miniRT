@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:02:06 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/12 09:35:10 by user42           ###   ########.fr       */
+/*   Updated: 2020/12/14 10:42:38 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,15 @@
 
 typedef struct	s_pixel
 {
-	unsigned char	B;
-	unsigned char	G;
-	unsigned char	R;
+	unsigned int	T;
+	unsigned int	B;
+	unsigned int	G;
+	unsigned int	R;
 }				t_pixel;
 
 int		ft_render(t_pixel *pixels, int H, int W, char **av);
+
+int		ft_fill_pixels(t_pixel *pixels, int H, int W);
 
 int		ft_save_bmp(t_pixel *pixels, int H, int W);
 
