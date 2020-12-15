@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:06:33 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/14 10:42:51 by user42           ###   ########.fr       */
+/*   Updated: 2020/12/15 11:11:37 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,12 @@
 
 t_pixel			*ft_init_t_pixel(int H, int W)
 {
-	int				i;
 	t_pixel			*pixels;
 
 	if (!(pixels = malloc(sizeof(t_pixel) * H * W)))
 	{
 		ft_error("", -1);
 		return (NULL);
-	}
-	i = 0;
-	while (i <= H * W)
-	{
-		pixels[i].T = 0;
-		pixels[i].R = 255;
-		pixels[i].G = 197;
-		pixels[i].B = 183;
-		i++;
 	}
 	return (pixels);
 }
