@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 06:23:29 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/16 10:11:38 by adelille         ###   ########.fr       */
+/*   Updated: 2020/12/16 11:28:56 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	ft_intersection(t_ray ray, t_sphere sphere)
 	coord[2] = ray.origin[2] - sphere.origin[2];
 	a = 1;
 	b = 2 * ft_dot(ray.direction, coord);
-	c = ft_get_norm2(coord) -
+	c = ft_dot(coord, coord) -
 		(sphere.diameter / 2) * (sphere.diameter / 2);
 	delta = b * b - 4 * a * c;
 	if (delta < 0)
