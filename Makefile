@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2020/12/15 10:44:50 by adelille         ###   ########.fr        #
+#    Updated: 2020/12/16 02:05:24 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRCS = main.c \
 	   ft_parse.c \
 	   ft_save_bmp.c \
 	   ft_mlx.c \
-	   ft_utils.c
+	   ft_utils.c \
+	   ft_fill_struct.c
 
 INCLUDE = miniRT.h
 

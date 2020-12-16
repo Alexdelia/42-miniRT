@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 07:15:58 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/11 04:25:49 by user42           ###   ########.fr       */
+/*   Updated: 2020/12/16 01:58:50 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,16 @@ static void		ft_write_data(t_pixel *pixels, int H, int W, int fd)
 	write(fd, zeroes, paddingBytes);
 }
 
-int				ft_save_bmp(t_pixel *pixels, int H, int W)
+int				ft_save_bmp(t_pixel *pixels)
 {
+	int				H;
+	int				W;
 	int				fd;
 	unsigned char	header[14];
 	unsigned char	bmpfileinfo[40];
 
+	H = (int)pixels.H;
+	W = (int)pixels.W;
 	if ((fd = open("minirt.bmp", O_CREAT | O_WRONLY | O_TRUNC, 0644)) == -1)
 		return(ft_error("Failed to save image as miniRT.bmp", 0));
 	ft_memset(header, 0, 14);
