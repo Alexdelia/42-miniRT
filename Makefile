@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2020/12/16 02:05:24 by adelille         ###   ########.fr        #
+#    Updated: 2020/12/16 03:21:04 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS = main.c \
 	   ft_save_bmp.c \
 	   ft_mlx.c \
 	   ft_utils.c \
+	   ft_vector_math.c \
 	   ft_fill_struct.c
 
 INCLUDE = miniRT.h
@@ -37,7 +38,10 @@ CC	 =	gcc -Wall -Werror -Wextra
 
 # GRAPHICAL LFGLAGS (for linux):
 LDFLAGS		+=	-lX11 -lXext
-# -lmlx
+# - lmlx
+
+# LDFLAGS (math.h)
+LDFLAGS		+=	-lm
 
 RM	 = rm -rf
 

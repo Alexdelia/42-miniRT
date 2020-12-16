@@ -6,13 +6,13 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:06:33 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/16 01:54:40 by adelille         ###   ########.fr       */
+/*   Updated: 2020/12/16 03:25:34 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_miniRT.h"
 
-t_pixel			*ft_init_t_pixel()
+t_pixel			*ft_init_t_pixel(unsigned int H, unsigned int W)
 {
 	t_pixel			*pixels;
 
@@ -21,8 +21,8 @@ t_pixel			*ft_init_t_pixel()
 		ft_error("", -1);
 		return (NULL);
 	}
-	pixels.H = 1024;
-	pixels.W = 1300;
+	pixels->H = H;
+	pixels->W = W;
 	return (pixels);
 }
 
@@ -49,7 +49,7 @@ int			main(int ac, char **av)
 // need to check if scene got camera, an ambiance light and a resolution
 	t_pixel			*pixels;
 
-	if (!(pixels = ft_init_t_pixel()))
+	if (!(pixels = ft_init_t_pixel(1024, 1024)))
 		return (1);
 	//ft_parse(scene, camera, ...)
 	ft_render(pixels, av);

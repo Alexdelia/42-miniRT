@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:02:06 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/16 01:52:36 by adelille         ###   ########.fr       */
+/*   Updated: 2020/12/16 03:16:28 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,8 @@ int		ft_save_bmp(t_pixel *pixels);
 int		ft_mlx_init(t_pixel *pixels);
 
 int		ft_error(char *text, int type);
+
+double	ft_dot(const vector a, const vector b);
+double	ft_get_norm2(const vector a);
 
 #endif

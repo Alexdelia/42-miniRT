@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:13:37 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/16 01:57:51 by adelille         ###   ########.fr       */
+/*   Updated: 2020/12/16 03:15:21 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ static int	ft_mlx_fill_pixel(t_pixel *pixels, void *mlx_ptr, void *win_ptr)
 	** G * 256				+
 	** B					+=
 	*/
-	int				i;
+	unsigned int i;
 	
 	i = -1;
-	while (++i <= pixels.H * pixels.W)
-		mlx_pixel_put (mlx_ptr, win_ptr, (i / pixels.H), (i % pixels.H),
+	while (++i <= pixels->H * pixels->W)
+		mlx_pixel_put (mlx_ptr, win_ptr, (i / pixels->H), (i % pixels->H),
 				ft_color_math(pixels, i));
 	return (0);
 }
@@ -46,7 +46,7 @@ int			ft_mlx_init(t_pixel *pixels)
 	void	*win_ptr;
 
 	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, pixels.H, pixels.W, "MiniRT");
+	win_ptr = mlx_new_window(mlx_ptr, pixels->H, pixels->W, "MiniRT");
 	ft_mlx_fill_pixel(pixels, mlx_ptr, win_ptr);
 	mlx_loop(mlx_ptr);
 	// mlx_destroy_window(mlx_ptr, win_ptr);
