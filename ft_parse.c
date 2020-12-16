@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 06:23:29 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/16 02:22:48 by adelille         ###   ########.fr       */
+/*   Updated: 2020/12/16 02:25:21 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,7 @@ int			ft_fill_pixels(t_pixel *pixels)
 			pixels[i].B = 255;
 		}
 	}
+	free(ray);
+	free(sphere);
 	return (0);
 }
