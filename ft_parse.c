@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 06:23:29 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/16 03:24:29 by user42           ###   ########.fr       */
+/*   Updated: 2020/12/16 10:11:38 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	ft_intersection(t_ray ray, t_sphere sphere)
 	delta = b * b - 4 * a * c;
 	if (delta < 0)
 		return (0);
-	if ((-b + sqrt(delta)) / (2 * a))
+	if ((-b + sqrt(delta)) / (2 * a) > 0)
 		return (1);
 	return (0);
 
