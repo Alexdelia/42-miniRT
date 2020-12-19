@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2020/12/16 03:21:04 by user42           ###   ########.fr        #
+#    Updated: 2020/12/19 17:40:51 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ SRCS = main.c \
 	   ft_mlx.c \
 	   ft_utils.c \
 	   ft_vector_math.c \
-	   ft_fill_struct.c
+	   ft_fill_struct.c \
+	   intersection/ft_sphere.c
+# WIP, ft_sphere.c will replace ft_parse.c to handle more form and a way better way
 
 INCLUDE = miniRT.h
 
