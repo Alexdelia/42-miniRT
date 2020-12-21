@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 17:14:06 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/19 17:38:21 by adelille         ###   ########.fr       */
+/*   Updated: 2020/12/21 08:30:30 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ inline t_inter	ft_sphere(t_ray ray, t_vector pos, double diameter, int id)
 	t_delta		delta;
 	t_inter		inter;
 
-	inter.type = sphere;
+	inter.type = SPHERE;
 	inter.id = id;
 	delta.a = SQ(ft_get_norm(ray.direction));
 	delta.b = 2 * ft_dot(ray.origin, pos) - SQ(diameter / 2);

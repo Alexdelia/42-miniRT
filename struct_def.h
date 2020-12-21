@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 01:43:00 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/21 08:30:14 by adelille         ###   ########.fr       */
+/*   Updated: 2020/12/21 09:06:22 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,20 @@ typedef struct		s_vector
 	double			z;
 }					t_vector;
 
+typedef struct		s_matrix
+{
+	t_vector		right;
+	t_vector		up;
+	t_vector		foward;
+}					t_matrix;
+
 typedef	struct		s_camera
 {
 	t_vector		pos;
 	t_vector		rot;
 	double			fov;
 	int				id;
+	t_matrix		rotation_matrix;
 }					t_camera;
 
 typedef	struct		s_camera_list
@@ -138,6 +146,9 @@ typedef struct		s_scene
 	t_obj_list		squares;
 	t_obj_list		cylinders;
 	t_nb_obj		nb_of;
+	double			aspect_ratio;
+	double			ambient_light_ratio;
+	int				ambient_light_rgb;
 }					t_scene;
 void				ft_init_scene(t_scene *scene);
 

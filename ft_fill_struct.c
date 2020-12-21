@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 02:05:32 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/16 03:10:04 by user42           ###   ########.fr       */
+/*   Updated: 2020/12/21 08:24:56 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@ t_ray		ft_fill_ray(double x, double y, double z, vector direction)
 {
 	t_ray		ray;
 	
-	/*if (!(ray = malloc(sizeof(t_ra))))
-	{
-		ft_error("", -1);
-		return (NULL);
-	}*/
 	ray.origin[0] = x;
 	ray.origin[1] = y;
 	ray.origin[2] = z;
@@ -30,18 +25,15 @@ t_ray		ft_fill_ray(double x, double y, double z, vector direction)
 	return (ray);
 }
 
-t_sphere	ft_fill_sphere(double x, double y, double z, double diameter)
+void		ft_init_scene(t_scene *scene)
 {
-	t_sphere	sphere;
-
-	/*if (!(sphere = malloc(sizeof(t_sphere))))
-	{
-		ft_error("", -1);
-		return (NULL);
-	}*/
-	sphere.origin[0] = x;
-	sphere.origin[1] = y;
-	sphere.origin[2] = z;
-	sphere.diameter = diameter;
-	return (sphere);
+	scene->x = 0;
+	scene->y = 0;
+	scene->nb_of.cameras = 0;
+	scene->nb_of.lights = 0;
+	scene->nb_of.spheres = 0;
+	scene->nb_of.cylinders = 0;
+	scene->nb_of.planes = 0;
+	scene->nb_of.triangles = 0;
+	scene->nb_of.sqaures = 0;
 }

@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2020/12/19 17:40:51 by adelille         ###   ########.fr        #
+#    Updated: 2020/12/21 09:06:48 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ MLXPATH = ./mlx/
 MLXNAME = $(MLXPATH)libmlx.a
 
 SRCS = main.c \
-	   ft_parse.c \
+	   ft_render.c \
 	   ft_save_bmp.c \
 	   ft_mlx.c \
 	   ft_utils.c \

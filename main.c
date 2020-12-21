@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:06:33 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/16 03:25:34 by user42           ###   ########.fr       */
+/*   Updated: 2020/12/21 09:29:56 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_pixel			*ft_init_t_pixel(unsigned int H, unsigned int W)
 
 	if (!(pixels = malloc(sizeof(t_pixel) * H * W)))
 	{
-		ft_error("", -1);
+		ft_error("", MALLOC);
 		return (NULL);
 	}
 	pixels->H = H;
@@ -28,7 +28,7 @@ t_pixel			*ft_init_t_pixel(unsigned int H, unsigned int W)
 
 int			ft_render(t_pixel *pixels, char **av)
 {
-	if (ft_fill_pixels(pixels) == -1)
+	if (ft_render_call(pixels, &scene) == -1)
 		return (ft_error("ray tracing fail for some reason\n", 0));
 	if (av[1] == (char *)"-save" || av[2] == (char *)"-save")
 		ft_save_bmp(pixels);
@@ -48,10 +48,12 @@ int			main(int ac, char **av)
 	(void)ac;
 // need to check if scene got camera, an ambiance light and a resolution
 	t_pixel			*pixels;
+	t_scene			scene;
 
 	if (!(pixels = ft_init_t_pixel(1024, 1024)))
 		return (1);
-	//ft_parse(scene, camera, ...)
+	ft_init_scene(&scene);
+	ft_parse(av, &scene);
 	ft_render(pixels, av);
 	free(pixels);
 	return (0);
