@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:02:06 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/21 09:29:25 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/08 07:36:56 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,15 @@ typedef struct	s_pixel
 }				t_pixel;
 
 int			ft_render(t_pixel *pixels, char **av);
-
 int			ft_render_call(t_pixel *pixels, t_scene &scene);
+void		ft_render_pixel(t_scene scene, t_img *img, t_ray ray, int index);
 
 int			ft_save_bmp(t_pixel *pixels);
 
 int			ft_mlx_init(t_pixel *pixels);
 
 int			ft_error(char *text, int type);
+int			ft_exit(char *text);
 
 t_inter		ft_sphere(t_ray ray, t_vector pos, double diameter, int id);
 

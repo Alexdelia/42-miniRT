@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 02:05:32 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/21 08:24:56 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/08 06:09:57 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ void		ft_init_scene(t_scene *scene)
 	scene->nb_of.cylinders = 0;
 	scene->nb_of.planes = 0;
 	scene->nb_of.triangles = 0;
-	scene->nb_of.sqaures = 0;
+	scene->nb_of.squares = 0;
+	scene->ambient_light_ratio = -1;
+	scene->ambient_light_rbg = -1;
 }

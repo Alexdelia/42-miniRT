@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 01:43:00 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/21 09:06:22 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/06 23:14:20 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,24 @@
 # define SQUARE 4
 # define CYLINDER 5
 # define TRIANGLE 6
+
+typedef struct		s_img
+{
+	void			*addr;
+	char			*buffer;
+	int				bpp;
+	int				line_size;
+	int				endian;
+}					t_img;
+
+typedef struct		s_env
+{
+	void			*mlx;
+	void			*win;
+	int				size_x;
+	int				size_y;
+	t_img			*img;
+}					t_env;
 
 typedef struct		s_inter
 {
@@ -151,5 +169,13 @@ typedef struct		s_scene
 	int				ambient_light_rgb;
 }					t_scene;
 void				ft_init_scene(t_scene *scene);
+
+typedef struct		s_params
+{
+	int				i;
+	t_env			*env;
+	int				nb_cam;
+	t_scene			*scene;
+}					t_params;
 
 #endif

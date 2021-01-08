@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 09:03:43 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/21 09:38:46 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/06 23:21:32 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static t_inter	ft_get_min(t_inter min, t_inter current, t_obj_list lst, int i)
 	return (min);
 }
 
-static t_inter	ft_objs_inter(t_scene scene, t_ray ray, int current_id, int on)
+t_inter			ft_objs_inter(t_scene scene, t_ray ray, int current_id, int on)
 {
 	size_t	i;
 	t_inter	min;
@@ -89,7 +89,7 @@ static t_vector	ft_get_pixel_pos(t_scene scene, int x, int y, t_camera camera)
 	return (pixel);
 }
 
-static void		ft_raycast(t_scene scene, t_camera camera, size_t i)
+static void		ft_raycast(t_scene scene, t_env *env, t_camera camera, size_t i)
 {
 	int		x;
 	int		y;
@@ -107,21 +107,13 @@ static void		ft_raycast(t_scene scene, t_camera camera, size_t i)
 		while (x < scene.x)
 		{
 			ray.direction = ft_normalize(ft_get_pixel_pos(scene, x, y, camera));
-			inter = ft_objs_inter(scene, ray, -1, 0);
-			if (inter_point.hit == TRUE)
-			{
-				// put pixels in the determied color
-			}
-			else
-			{
-				// handle no change in color
-			}
+			ft_render_pixel(scene, &env->img[i], ray, index);
 			index += 4;
 			x++;
 		}
 		y++;
 	}
-	// stock image to display it later on mlx or save as bmp
+	env->img[i].buffer[y * x * 4] = '\0';
 }
 
 int			ft_render_call(t_pixel *pixels, t_scene *scene)
@@ -133,7 +125,7 @@ int			ft_render_call(t_pixel *pixels, t_scene *scene)
 	i = 0;
 	while (i < scene.nb_of.cameras)
 	{
-		ft_raycast(scene, camera, i);
+		ft_raycast(scene, &env, camera, i);
 		i++;
 	}
 	return (0);

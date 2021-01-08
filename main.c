@@ -6,26 +6,32 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:06:33 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/21 09:29:56 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/08 07:52:07 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_miniRT.h"
 
-t_pixel			*ft_init_t_pixel(unsigned int H, unsigned int W)
+int			ft_init_env(t_scene *scene, t_env *env)
 {
-	t_pixel			*pixels;
+	int	x;
+	int	y;
 
-	if (!(pixels = malloc(sizeof(t_pixel) * H * W)))
-	{
-		ft_error("", MALLOC);
-		return (NULL);
-	}
-	pixels->H = H;
-	pixels->W = W;
-	return (pixels);
+	env->mlx = mlx_init();
+	mlx_get_screen_size(env->mlx, &x, &y);
+	env->size_x = (scene->x > x ? x : scene->x);
+	env->size_y = (scene->y > y ? y : scene->y);
+	scene->x = env->size_x;
+	scene->y = env->size_y;
+	scene->aspect_ratio = (double)scene->x / (double)scene->y;
+	env->win = mlx_new_window(env->mlx, env->size_x, env->size_y, "miniRT");
+	if (!(env->img = malloc(sizeof(t_img) * scene->nb_of.cameras)))
+		return (-1);
+	return (0);
 }
 
+// WIP, Moving mlx part
+/*
 int			ft_render(t_pixel *pixels, char **av)
 {
 	if (ft_render_call(pixels, &scene) == -1)
@@ -42,19 +48,19 @@ int			ft_render(t_pixel *pixels, char **av)
 	}
 	return (0);
 }
-
+*/
 int			main(int ac, char **av)
 {
 	(void)ac;
-// need to check if scene got camera, an ambiance light and a resolution
-	t_pixel			*pixels;
 	t_scene			scene;
+	t_env			env;
 
-	if (!(pixels = ft_init_t_pixel(1024, 1024)))
-		return (1);
 	ft_init_scene(&scene);
-	ft_parse(av, &scene);
-	ft_render(pixels, av);
-	free(pixels);
+	ft_parse(av[1], &scene);
+	ft_check_scene(scene);
+	ft_init_env(&scene, &env);
+	ft_render(scene, &env); //WIP move parse of -save and -png
+	// will need to add save function and display function in ft_render (might need to free(scene + env) in ft_render, or main
+	mlx_loop(env.mlx);
 	return (0);
 }
