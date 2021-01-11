@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2021/01/08 07:24:17 by adelille         ###   ########.fr        #
+#    Updated: 2021/01/11 23:47:14 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRCS = main.c \
 	   ft_render.c \
 	   ft_check.c \
 	   ft_save_bmp.c \
-	   ft_mlx.c \
+	   ft_display.c \
 	   ft_utils.c \
 	   ft_vector_math.c \
 	   ft_fill_struct.c \

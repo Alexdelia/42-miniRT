@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 09:03:43 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/06 23:21:32 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/11 23:28:08 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,23 @@ static t_vector	ft_get_pixel_pos(t_scene scene, int x, int y, t_camera camera)
 	t_vector	pixel;
 	double		scale;
 	t_vector	tmp;
+	t_vector	rot_vector[3];
+
 	scale = tan(camera.fov / 2);
 	pixel.x = (2 * (x + 0.5) / (double)scene.x - 1)
 				* scene.aspect_ratio * scale;
 	pixel.y = (1 - 2 * (y + 0.5) / (double)scene.y) * scale;
+	pixel.z = 1;
 	tmp = pixel;
-	pixel.x = ft_dot(tmp, camera.rotation_matrix.right);
-	pixel.y = ft_dot(tmp, camera.rotation_matrix.up);
-	pixel.z = ft_dot(tmp, camera.rotation_matrix.foward);
+	rot_vector[0] = ft_create_vector(camera.rotation_matrix.right.x,
+			camera.rotation_matrix.up.x, camera.rotation_matrix.foward.x);
+	rot_vector[1] = ft_create_vector(camera.rotation_matrix.right.y,
+			camera.rotation_matrix.up.y, camera.rotation_matrix.foward.y);
+	rot_vector[2] = ft_create_vector(camera.rotation_matrix.right.z,
+			camera.rotation_matrix.up.z, camera.rotation_matrix.foward.z);
+	pixel.x = ft_dot(tmp, rot_vector[0]);
+	pixel.y = ft_dot(tmp, rot_vector[1]);
+	pixel.z = ft_dot(tmp, rot_vector[2]);
 	return (pixel);
 }
 
@@ -94,12 +103,10 @@ static void		ft_raycast(t_scene scene, t_env *env, t_camera camera, size_t i)
 	int		x;
 	int		y;
 	size_t	index;
-	t_inter	inter;
-	t_inter	inter_light;
 	t_ray	ray;
-	t_ray	ray_light;
 
 	y = 0;
+	index = 0;
 	ray.origin = camera.pos;
 	while (y < scene.y)
 	{
@@ -116,16 +123,24 @@ static void		ft_raycast(t_scene scene, t_env *env, t_camera camera, size_t i)
 	env->img[i].buffer[y * x * 4] = '\0';
 }
 
-int			ft_render_call(t_pixel *pixels, t_scene *scene)
+int			ft_render(t_scene scene, t_env *env)
 {
 	size_t			i;
 	t_camera		camera;
 
-	camera.fov = scene.cameras.fov[i];
 	i = 0;
 	while (i < scene.nb_of.cameras)
 	{
-		ft_raycast(scene, &env, camera, i);
+		env->img[i].addr = mlx_new_image(env->mlx, env->size_x, env->size_y);
+		env->img[i].buffer = mlx_get_data_addr(env->img[i].addr,
+				&env->img[i].bpp, &env->img[i].line_size, &env->img[i].endian);
+		camera.pos = scene.cameras.pos[i];
+		camera.rot = scene.cameras.rot[i];
+		camera.fov = scene.cameras.fov[i];
+		camera.rotation_matrix = ft_look_at(camera.rot);
+		ft_raycast(scene, env, camera, i);
+		if (i == 0)
+			mlx_put_image_to_window(env->mlx, env->win, env->img[i].addr, 0, 0);
 		i++;
 	}
 	return (0);

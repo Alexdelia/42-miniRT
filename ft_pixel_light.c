@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 23:20:46 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/06 23:22:30 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/08 21:15:02 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_render_piexl(t_scene scene, t_img *img, t_ray ray, int index)
+void	ft_render_pixel(t_scene scene, t_img *img, t_ray ray, int index)
 {
 
 }

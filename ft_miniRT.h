@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:02:06 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/08 07:36:56 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/11 23:49:19 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,12 @@
 # define FALSE 0
 # define MALLOC -1
 
-typedef struct	s_pixel
-{
-	unsigned int	H;
-	unsigned int	W;
-	unsigned int	T;
-	unsigned int	B;
-	unsigned int	G;
-	unsigned int	R;
-}				t_pixel;
-
-int			ft_render(t_pixel *pixels, char **av);
-int			ft_render_call(t_pixel *pixels, t_scene &scene);
+int			ft_render(t_scene scene, t_env *env);
 void		ft_render_pixel(t_scene scene, t_img *img, t_ray ray, int index);
 
 int			ft_save_bmp(t_pixel *pixels);
 
-int			ft_mlx_init(t_pixel *pixels);
+int			ft_display(t_env *env, int nb_cam, t_scene *scene);
 
 int			ft_error(char *text, int type);
 int			ft_exit(char *text);
