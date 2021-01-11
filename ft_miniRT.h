@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:02:06 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/11 23:49:19 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/12 00:11:41 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ t_vector	ft_normalize(t_vector a);
 t_vector	ft_add(t_vector a, t_vector b);
 t_vector	ft_sub(t_vector a, t_vector b);
 t_vector	ft_multiply(t_vector a, t_vector b);
+t_vector	ft_cross(t_vector a, t_vector b);
 
 #endif

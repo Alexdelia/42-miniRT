@@ -6,7 +6,7 @@
 /*   By: user42 <adelille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 02:36:08 by user42            #+#    #+#             */
-/*   Updated: 2020/12/19 17:38:05 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/12 00:11:07 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,14 @@ t_vector	ft_multiply(t_vector a, t_vector b)
 	res.y = a.y * b.y;
 	res.z = a.z * b.z;
 	return (res);
+}
+
+t_vector	ft_cross(t_vector a, t_vector b)
+{
+	t_vector	v;
+
+	v.x = (a.y * b.z) - (a.z * b.y);
+	v.y = (a.z * b.x) - (a.x * b.z);
+	v.z = (a.x * b.y) - (a.y * b.x);
+	return (v);
 }
