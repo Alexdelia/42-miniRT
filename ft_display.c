@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 23:29:29 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/12 00:12:34 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/15 03:46:24 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,21 @@ static int		ft_img_to_window(int keycode, t_params *params)
 					params->env->img[params->i].addr, 0, 0);
 	}
 	else if (keycode == 65307)
-	{
-		free(params);
-		exit(0);
-	}
+		ft_free_exit(params);
 	return (0);
 }
 
-static int		ft_free_stop(t_params *params)
+static int		ft_put_img_back(t_params *params)
 {
-	free(params);
-	exit(0);
-	return (1);
+	mlx_put_image_to_window(params->env->mlx, params->env->win,
+			params->env->img[params->i].addr, 0, 0);
+	return (0);
+}
+
+static int		ft_minimize(t_params *params)
+{
+	mlx_hook(params->env->win, 15, 1L << 16, ft_put_img_back, params);
+	return (0);
 }
 
 int				ft_display(t_env *env, int nb_cam, t_scene *scene)
@@ -70,13 +73,16 @@ int				ft_display(t_env *env, int nb_cam, t_scene *scene)
 	static int	number = 0;
 	t_params	*params;
 
+	env->win = mlx_new_window(env->mlx, env->size_x, env->size_y, "miniRT");
+	mlx_put_image_to_window(env->mlx, env->win, env->img[0].addr, 0, 0);
 	if (!(params = malloc(sizeof(t_params))))
 		return (0);
 	params->i = number;
 	params->env = env;
 	params->nb_cam = nb_cam;
 	params->scene = scene;
-	mlx_hook(env->win, 17, 1L << 17, ft_free_stop, params);
+	mlx_hook(env->win, 33, 1L << 5, ft_free_exit, params);
 	mlx_hook(env->win, 2, 1L << 0, ft_img_to_window, params);
+	mlx_hook(env->win, 15, 1L << 16, ft_minimize, params);
 	return (0);
 }

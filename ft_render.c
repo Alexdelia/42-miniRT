@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 09:03:43 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/11 23:28:08 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/15 03:37:34 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,6 @@ static void		ft_raycast(t_scene scene, t_env *env, t_camera camera, size_t i)
 		}
 		y++;
 	}
-	env->img[i].buffer[y * x * 4] = '\0';
 }
 
 int			ft_render(t_scene scene, t_env *env)
@@ -139,8 +138,6 @@ int			ft_render(t_scene scene, t_env *env)
 		camera.fov = scene.cameras.fov[i];
 		camera.rotation_matrix = ft_look_at(camera.rot);
 		ft_raycast(scene, env, camera, i);
-		if (i == 0)
-			mlx_put_image_to_window(env->mlx, env->win, env->img[i].addr, 0, 0);
 		i++;
 	}
 	return (0);

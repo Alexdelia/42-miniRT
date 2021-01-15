@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:02:06 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/12 00:11:41 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/15 03:39:38 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 # include <fcntl.h>
 # include <math.h>
+# include <stdio.h>
 
 # define TRUE 1
 # define FALSE 0
@@ -27,7 +28,7 @@
 int			ft_render(t_scene scene, t_env *env);
 void		ft_render_pixel(t_scene scene, t_img *img, t_ray ray, int index);
 
-int			ft_save_bmp(t_pixel *pixels);
+//int			ft_save_bmp(...);
 
 int			ft_display(t_env *env, int nb_cam, t_scene *scene);
 

@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:06:33 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/08 07:52:07 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/15 03:42:44 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int			ft_init_env(t_scene *scene, t_env *env)
 	scene->x = env->size_x;
 	scene->y = env->size_y;
 	scene->aspect_ratio = (double)scene->x / (double)scene->y;
-	env->win = mlx_new_window(env->mlx, env->size_x, env->size_y, "miniRT");
+	//env->win = mlx_new_window(env->mlx, env->size_x, env->size_y, "miniRT");
 	if (!(env->img = malloc(sizeof(t_img) * scene->nb_of.cameras)))
 		return (-1);
 	return (0);
@@ -56,11 +56,20 @@ int			main(int ac, char **av)
 	t_env			env;
 
 	ft_init_scene(&scene);
-	ft_parse(av[1], &scene);
+	if (argv[1])
+		ft_parse(av[1], &scene);
+	else
+	{
+		ft_putstr("Error: no input file\n");
+		exit(0);
+	}
 	ft_check_scene(scene);
 	ft_init_env(&scene, &env);
 	ft_render(scene, &env); //WIP move parse of -save and -png
 	// will need to add save function and display function in ft_render (might need to free(scene + env) in ft_render, or main
+	ft_save_bmp(ac, av, scene, env);
+	ft_display(&env, scene.nb_of.cameras, &scene);
+	ft_free(&scene);
 	mlx_loop(env.mlx);
 	return (0);
 }
