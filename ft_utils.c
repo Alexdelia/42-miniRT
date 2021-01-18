@@ -6,7 +6,7 @@
 /*   By: user42 <adelille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 22:31:43 by user42            #+#    #+#             */
-/*   Updated: 2021/01/15 03:45:52 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/18 09:38:52 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_error(char *text, int type)
 
 int	ft_exit(char *text)
 {
-	ft_putstr_fd(text);
+	ft_putstr_fd(text, 1);
 	exit(1);
 }
 
@@ -45,5 +45,19 @@ int	ft_free_exit(t_params *params)
 	free(params->env->img);
 	free(params->env->mlx);
 	exit(0);
+	return (1);
+}
+
+int	ft_strcmp(char *str, char *cmp)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] && cmp[i])
+	{
+		if (!(str[i] == cmp[i]))
+			return (0);
+		i++;
+	}
 	return (1);
 }

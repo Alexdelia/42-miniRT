@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:06:33 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/15 03:42:44 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/18 09:58:25 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,17 @@ int			ft_init_env(t_scene *scene, t_env *env)
 	int	y;
 
 	env->mlx = mlx_init();
-	mlx_get_screen_size(env->mlx, &x, &y);
-	env->size_x = (scene->x > x ? x : scene->x);
-	env->size_y = (scene->y > y ? y : scene->y);
+	if (save)
+	{
+		mlx_get_screen_size(env->mlx, &x, &y);
+		env->size_x = (scene->x > x ? x : scene->x);
+		env->size_y = (scene->y > y ? y : scene->y);
+	}
+	else
+	{
+		env->size_x = scene->x;
+		env->size_y = scene->y;
+	}
 	scene->x = env->size_x;
 	scene->y = env->size_y;
 	scene->aspect_ratio = (double)scene->x / (double)scene->y;
@@ -51,23 +59,23 @@ int			ft_render(t_pixel *pixels, char **av)
 */
 int			main(int ac, char **av)
 {
-	(void)ac;
-	t_scene			scene;
-	t_env			env;
+	t_scene	scene;
+	t_env	env;
+	int		save;
 
 	ft_init_scene(&scene);
-	if (argv[1])
+	save = 1;
+	if (av[2])
+		save = ft_strcmp(av[2], "--save");
+	if (ac == 2 || (ac == 3 && save == 0))
 		ft_parse(av[1], &scene);
 	else
-	{
-		ft_putstr("Error: no input file\n");
-		exit(0);
-	}
+		ft_exit("Error: wrong input\n");
 	ft_check_scene(scene);
-	ft_init_env(&scene, &env);
-	ft_render(scene, &env); //WIP move parse of -save and -png
+	ft_init_env(&scene, &env, save);
+	ft_render(scene, &env);
 	// will need to add save function and display function in ft_render (might need to free(scene + env) in ft_render, or main
-	ft_save_bmp(ac, av, scene, env);
+	ft_save_bmp(ac, av, &scene, &env);
 	ft_display(&env, scene.nb_of.cameras, &scene);
 	ft_free(&scene);
 	mlx_loop(env.mlx);

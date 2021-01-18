@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 06:10:39 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/08 07:39:38 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/18 10:53:47 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	ft_find(char *str, char *id)
+int			ft_find(char *str, char *id)
 {
 	size_t	i;
 
@@ -118,11 +118,17 @@ int			ft_parse(char *file, t_scene *scene)
 	int		file_index;
 	int		nb_lines;
 
-	i = 0;
-	nb = nb_lines = 0;
+	i = -1;
+	nb_lines = 0;
 	if (file[file_index - 1] != 't' ||
 			file[file_index - 2] != 'r' || file[file_index - 3] != '.')
-		return (ft_exit("Error: The file is not a .rt\n", 0));
+		ft_exit("Error: The file is not a .rt\n", 0)
 	if ((fd = open(file, O_RDONLY)) <= 0)
-		return (ft_exit("Error: File can't be open\n", 0));
+		ft_exit("Error: File can't be open\n", 0)
 	scene_lines = ft_get_lines(fd, &scene->nb_of, &nb_lines);
+	ft_init_scene_list(scene);
+	while (++i < nb_lines)
+	{
+		if (!ft_parse_line(scene_lines[i], scene) ||
+					!ft_check_only_letter(scene_lines[i]))
+	}

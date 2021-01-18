@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2021/01/11 23:47:14 by adelille         ###   ########.fr        #
+#    Updated: 2021/01/18 09:56:47 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS = main.c \
 	   ft_utils.c \
 	   ft_vector_math.c \
 	   ft_fill_struct.c \
+	   ft_free.c \
 	   intersection/ft_sphere.c \
 	   get_next_line/get_next_line.c \
 	   get_next_line/get_next_line.h \
