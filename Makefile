@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2021/01/23 18:44:51 by adelille         ###   ########.fr        #
+#    Updated: 2021/01/23 19:00:36 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRCS = main.c \
 	   intersection/ft_intersection.c \
 	   intersection/ft_sphere.c \
 	   intersection/ft_plane.c \
+	   intersection/ft_square.c \
 	   ft_save_bmp.c \
 	   ft_display.c \
 	   ft_utils.c \
@@ -40,7 +41,6 @@ SRCS = main.c \
 	   get_next_line/get_next_line.c \
 	   get_next_line/get_next_line.h \
 	   get_next_line/get_next_line_utils.c
-# WIP, ft_sphere.c will replace ft_parse.c to handle more form and a way better way
 
 INCLUDE = miniRT.h \
 		  struct_def.h
