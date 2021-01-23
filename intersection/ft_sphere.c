@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 17:14:06 by adelille          #+#    #+#             */
-/*   Updated: 2020/12/21 08:30:30 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/23 18:14:36 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ static int		ft_get_distance(t_delta delta, t_inter *inter)
 	t2 = (-delta.b + sqrt(delta.delta)) / (2 * delta.a);
 	if (t2 < 0)
 		return (0);
-	if (t1 > 0)
-		inter->t = t1;
-	else
-		inter->t = t2;
+	inter->t = (t1 > 0 ? t1 : t2);
 	return (1);
 }
 
@@ -44,21 +41,19 @@ inline t_inter	ft_sphere(t_ray ray, t_vector pos, double diameter, int id)
 
 	inter.type = SPHERE;
 	inter.id = id;
-	delta.a = SQ(ft_get_norm(ray.direction));
-	delta.b = 2 * ft_dot(ray.origin, pos) - SQ(diameter / 2);
-	delta.delta = SQ(delta.b) - 4 * delta.a * delta.c;
-
+	delta.a = pow(ft_get_norm(ray.direction), 2);
+	delta.b = 2 * ft_dot(ray.direction, ft_sub(ray.origin, pos));
+	delta.c = pow(ft_get_norm(ft_sub(ray.origin, pos)), 2)
+			- pow(diameter / 2, 2);
+	delta.delta = pow(delta.b, 2) - 4 * delta.a * delta.c;
 	inter.hit = FALSE;
 	if (delta.delta < 0)
 		return (inter);
-	inter.hit = TRUE;
 	if (ft_get_distance(delta, &inter) == 0)
-		inter.hit = FALSE;
+		return (inter);
+	inter.hit = TRUE;
 	ft_get_normal(ray, pos, &inter);
 	if (dot(inter.normal, ray.direction) > 0)
-	{
-			inter.normal = ft_multiply(inter.normal,
-			ft_create_vector(-1, -1, -1));
-	}
+			inter.normal = ft_scale(inter.normal, -1);
 	return (inter);
 }

@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 06:10:39 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/18 10:53:47 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/22 19:06:45 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	ft_count_obj(char *line, t_nb_obj *nb_of)
 				!ft_find(line, "tr") && !ft_find(line, "c") &&
 				!ft_find(line, "l"))
 		return (0);
-	else if (ft_find(line, "sp") > 0)
+	else if (ft_find(line, "sp"))
 		nb_of->spheres += 1;
 	else if (ft_find(line, "pl"))
 		nb_of->planes += 1;
@@ -120,6 +120,7 @@ int			ft_parse(char *file, t_scene *scene)
 
 	i = -1;
 	nb_lines = 0;
+	file_index = ft_strlen(file);
 	if (file[file_index - 1] != 't' ||
 			file[file_index - 2] != 'r' || file[file_index - 3] != '.')
 		ft_exit("Error: The file is not a .rt\n", 0)
@@ -131,4 +132,9 @@ int			ft_parse(char *file, t_scene *scene)
 	{
 		if (!ft_parse_line(scene_lines[i], scene) ||
 					!ft_check_only_letter(scene_lines[i]))
+			ft_exit_parser(nb_lines, scene_lines, i, scene);
+		free(scene_lines[i];
 	}
+	free(scene_lines);
+	return (0);
+}

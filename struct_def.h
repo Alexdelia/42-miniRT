@@ -6,14 +6,13 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 01:43:00 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/06 23:14:20 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/23 18:10:51 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_DEF_H
 # define STRUCT_DEF_H
 
-# define SQ(x) x * x
 # define CAM 0
 # define LIGHT 1
 # define SPHERE 2
@@ -40,17 +39,6 @@ typedef struct		s_env
 	t_img			*img;
 }					t_env;
 
-typedef struct		s_inter
-{
-	double			t;
-	t_vector		coord;
-	t_vector		normal;
-	int				hit;
-	int				color;
-	double			pixel_intensity;
-	int				id;
-	int				type;
-}					t_inter;
 
 typedef struct		s_vector
 {
@@ -58,6 +46,37 @@ typedef struct		s_vector
 	double			y;
 	double			z;
 }					t_vector;
+
+typedef struct		s_ray
+{
+	t_vector		origin;
+	t_vector		direction;
+}					t_ray;
+t_ray				ft_fill_ray(double x, double y,
+							double z, t_vector direction);
+
+typedef struct		s_inter
+{
+	double			t;
+	double			t1;
+	double			t2;
+	t_vector		coord;
+	t_vector		normal;
+	int				hit;
+	int				color;
+	double			pixel_intensity;
+	int				id;
+	int				type;
+	t_ray			ray;
+}					t_inter;
+
+typedef struct		s_color
+{
+	double			r;
+	double			g;
+	double			b;
+	int				shadow;
+}					t_color;
 
 typedef struct		s_matrix
 {
@@ -109,14 +128,6 @@ typedef struct		s_delta
 	double			delta;
 }					t_delta;
 
-typedef struct		s_ray
-{
-	t_vector		origin;
-	t_vector		direction;
-}					t_ray;
-t_ray				ft_fill_ray(double x, double y,
-							double z, t_vector direction);
-
 typedef	struct		s_obj
 {
 	int				id;
@@ -137,7 +148,7 @@ typedef	struct		s_obj_list
 	t_vector		*rot;
 	double			*diameter;
 	double			*H;
-	int				*colors;
+	int				*color;
 	t_vector		*points[3];
 }					t_obj_list;
 
