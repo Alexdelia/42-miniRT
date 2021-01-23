@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 17:59:14 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/23 18:06:41 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/23 18:29:04 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,9 @@ t_inter			ft_objs_inter(t_scene scene, t_ray ray, int current_id, int on)
 		}
 	i = -1;
 	while (++i < scene.nb_of.planes)
-	{
-		current = ft_planes();
-		min = ft_get_min(min, current, scene.planes, i);
-	}
+		min = ft_get_min(min, ft_plane_collision(ray,
+						scene.planes.pos[i], scene.planes.rot[i]),
+						scene.planes, i);
 	i = -1;
 	while (++i < scene.nb_of.triangles)
 	{

@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2021/01/18 09:56:47 by adelille         ###   ########.fr        #
+#    Updated: 2021/01/23 18:44:51 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,22 +19,31 @@ MLXPATH = ./mlx/
 MLXNAME = $(MLXPATH)libmlx.a
 
 SRCS = main.c \
-	   ft_parse.c \
-	   ft_render.c \
 	   ft_check.c \
+	   parse/ft_parse.c \
+	   parse/ft_parse_get.c \
+	   parse/ft_parse_init_list.c \
+	   parse/ft_parse_utils.c \
+	   parse/ft_parse_utils2.c \
+	   parse/ft_parse_utils3.c \
+	   ft_render.c \
+	   ft_light.c \
+	   intersection/ft_intersection.c \
+	   intersection/ft_sphere.c \
+	   intersection/ft_plane.c \
 	   ft_save_bmp.c \
 	   ft_display.c \
 	   ft_utils.c \
 	   ft_vector_math.c \
 	   ft_fill_struct.c \
 	   ft_free.c \
-	   intersection/ft_sphere.c \
 	   get_next_line/get_next_line.c \
 	   get_next_line/get_next_line.h \
 	   get_next_line/get_next_line_utils.c
 # WIP, ft_sphere.c will replace ft_parse.c to handle more form and a way better way
 
-INCLUDE = miniRT.h
+INCLUDE = miniRT.h \
+		  struct_def.h
 
 OBJS_NAME = ${SRCS:.c=.o}
 
@@ -42,7 +51,7 @@ OBJS_PATH = ./objs/
 
 OBJS = $(addprefix $(OBJS_PATH), $(OBJS_NAME))
 
-CC	 =	gcc -Wall -Werror -Wextra
+CC	 =	clang -Wall -Werror -Wextra
 
 # GRAPHICAL LFGLAGS (for linux):
 LDFLAGS		+=	-lX11 -lXext

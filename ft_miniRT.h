@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:02:06 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/23 18:18:36 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/23 18:36:33 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int			ft_free_s(char *error, t_scene *scene);
 void		ft_free(t_scene *scene);
 
 t_inter		ft_sphere(t_ray ray, t_vector pos, double diameter, int id);
+t_inter		ft_plane(t_ray ray, t_vector point, t_vector normal);
 
 t_vector	ft_create_vector(double x, double y, double z);
 double		ft_dot(t_vector a, t_vector b);
