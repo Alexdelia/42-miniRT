@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 01:43:00 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/29 15:56:54 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/29 16:23:16 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,6 +162,26 @@ typedef	struct		s_nb_obj
 	size_t			squares;
 }					t_nb_obj;
 
+typedef struct		s_light
+{
+	t_vector		pos;
+	t_vector		dir;
+	double			distance;
+	double			ratio;
+	int				rgba;
+	int				id;
+}					t_light;
+
+typedef struct		s_light_list;
+{
+	t_vector		*pos;
+	t_vector		*dir;
+	t_vector		*distance;
+	t_vector		*ratio;
+	int				*rgba;
+	int				*id;
+}					t_light_list;
+
 typedef struct		s_scene
 {
 	int				x;
@@ -195,5 +215,11 @@ typedef struct		s_pack
 	double			diameter;
 	double			H;
 }					t_pack;
+
+typedef struct		s_phong
+{
+	double			diffuse;
+	double			specular;
+}					t_phong;
 
 #endif

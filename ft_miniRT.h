@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:02:06 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/29 16:08:33 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/29 16:42:37 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define TRUE 1
 # define FALSE 0
 # define MALLOC -1
+# define PHONG_R 80
 
 int			ft_parse(char *file, t_scene *scene);
 int			ft_init_scene_list(t_scene *scene);
@@ -32,6 +33,7 @@ int			ft_check_only_letter(char *line);
 
 int			ft_render(t_scene scene, t_env *env);
 void		ft_render_pixel(t_scene scene, t_img *img, t_ray ray, int index);
+t_phong		ft_phong(t_ray ray, t_inter inter, t_vector l_pos);
 
 //int			ft_save_bmp(...);
 
