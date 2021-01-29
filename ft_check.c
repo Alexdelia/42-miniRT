@@ -6,9 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 07:24:02 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/18 10:48:41 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/29 15:42:28 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "miniRT.h"
 
 int		ft_check_only_letter(char *line)
 {

@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 18:52:45 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/23 18:59:00 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/29 15:40:11 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "miniRT.h"
 
 t_inter	ft_square(t_ray ray, t_vector pos, t_vector rot, double H)
 {

@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2021/01/23 19:00:36 by adelille         ###   ########.fr        #
+#    Updated: 2021/01/29 16:08:56 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,8 @@ SRCS = main.c \
 	   intersection/ft_sphere.c \
 	   intersection/ft_plane.c \
 	   intersection/ft_square.c \
+	   intersection/ft_triangle.c \
+	   intersection/ft_cylinder.c \
 	   ft_save_bmp.c \
 	   ft_display.c \
 	   ft_utils.c \

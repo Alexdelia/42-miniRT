@@ -6,12 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 09:54:56 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/18 09:56:05 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/29 15:42:54 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "minirt.h"
+#include "miniRT.h"
 
 static int	ft_free_light_list(t_light_list *list)
 {

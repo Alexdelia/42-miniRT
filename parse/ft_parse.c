@@ -6,9 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 06:10:39 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/22 19:06:45 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/29 15:41:06 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "miniRT.h"
 
 int			ft_find(char *str, char *id)
 {

@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 10:51:59 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/18 10:52:01 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/29 15:41:55 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "miniRT.h"
 
 int		ft_get_rgba(char **line)
 {

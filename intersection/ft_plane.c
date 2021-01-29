@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 18:29:53 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/23 18:35:34 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/29 15:39:43 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "miniRT.h"
 
 inline t_inter	ft_plane(t_ray ray, t_vector point, t_vector normal)
 {

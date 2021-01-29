@@ -6,12 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 10:17:24 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/18 10:28:13 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/29 15:41:28 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "minirt.h"
+#include "miniRT.h"
 
 int			ft_parse_line(char *line, t_scene *scene)
 {

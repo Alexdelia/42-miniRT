@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 17:14:06 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/23 18:14:36 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/29 15:39:55 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "miniRT.h"
 
 static int		ft_get_distance(t_delta delta, t_inter *inter)
 {

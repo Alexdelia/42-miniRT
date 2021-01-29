@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 01:43:00 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/23 18:10:51 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/29 15:56:54 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct		s_env
 	int				size_y;
 	t_img			*img;
 }					t_env;
-
 
 typedef struct		s_vector
 {
@@ -188,5 +187,13 @@ typedef struct		s_params
 	int				nb_cam;
 	t_scene			*scene;
 }					t_params;
+
+typedef struct		s_pack
+{
+	t_vector		pos;
+	t_vector		rot;
+	double			diameter;
+	double			H;
+}					t_pack;
 
 #endif

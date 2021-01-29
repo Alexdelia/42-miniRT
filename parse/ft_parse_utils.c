@@ -6,12 +6,12 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 10:41:51 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/18 10:41:56 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/29 15:41:40 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "minirt.h"
+#include "miniRT.h"
 
 int		ft_isnum(char **line)
 {

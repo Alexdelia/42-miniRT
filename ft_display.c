@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 23:29:29 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/15 03:46:24 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/29 15:42:37 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "miniRT.h"
 
 static t_matrix	ft_look_at(t_vector cam_dir)
 {
