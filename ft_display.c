@@ -6,13 +6,13 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 23:29:29 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/29 15:42:37 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/30 14:52:10 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 
-static t_matrix	ft_look_at(t_vector cam_dir)
+t_matrix		ft_look_at(t_vector cam_dir)
 {
 	t_vector	wup;
 	t_matrix	m;

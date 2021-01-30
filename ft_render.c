@@ -6,72 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 09:03:43 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/15 03:37:34 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/30 14:55:52 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_miniRT.h"
-
-static t_inter	ft_get_min(t_inter min, t_inter current, t_obj_list lst, int i)
-{
-	if (current.hit == TRUE)
-	{
-		if ((current.t < min.t || min.t == -1))
-		{
-			min = current;
-			min.color = lst.color[i];
-			min.id = lst.id[i];
-		}
-	}
-	return (min);
-}
-
-t_inter			ft_objs_inter(t_scene scene, t_ray ray, int current_id, int on)
-{
-	size_t	i;
-	t_inter	min;
-	t_inter	current;
-	
-	min.t = -1;
-	min.hit = FALSE;
-	i = -1;
-	while (++i < scene.nb_of.spheres)
-	{
-		if (scene.spheres.id[i] != current_id || on == 0)
-		{
-			current = ft_sphere(ray, scene.spheres.pos[i],
-						scene.sphere.diameter[i], scene.spheres.id[i]);
-			min = ft_get_min(min, current, scene.spheres, i);
-		}
-	}
-	i = -1;
-	while (++i < scene.nb_of.planes)
-	{
-		current = ft_planes();
-		min = ft_get_min(min, current, scene.planes, i);
-	}
-	i = -1;
-	while (++i < scene.nb_of.triangles)
-	{
-		// this one might need the coord of each point in arg
-		current = ft_triangle();
-		min = ft_get_min(min, current, scene.triangles, i);
-	}
-	i = -1;
-	while (++i < scene.nb_of.squares)
-	{
-		current = ft_square();
-		min = ft_get_min(min, current, scene.square, i);
-	}
-	i = -1;
-	while (++i < scene.nb_of.cylinders)
-	{
-		// this one might need a struct to handle all arg
-		current = ft_cylinders();
-		min = ft_get_min(min, current, scene.cylindes, i);
-	}
-	return (min);
-}
 
 static t_vector	ft_get_pixel_pos(t_scene scene, int x, int y, t_camera camera)
 {

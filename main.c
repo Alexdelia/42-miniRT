@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:06:33 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/22 22:42:22 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/30 15:32:49 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int			ft_init_env(t_scene *scene, t_env *env)
 	scene->x = env->size_x;
 	scene->y = env->size_y;
 	scene->aspect_ratio = (double)scene->x / (double)scene->y;
-	//env->win = mlx_new_window(env->mlx, env->size_x, env->size_y, "miniRT");
 	if (!(env->img = malloc(sizeof(t_img) * scene->nb_of.cameras)))
 		return (-1);
 	return (0);
@@ -57,7 +56,7 @@ int			main(int ac, char **av)
 	ft_render(scene, &env);
 	ft_save_bmp(ac, av, &scene, &env);
 	ft_display(&env, scene.nb_of.cameras, &scene);
-	ft_free(&scene);
+	ft_free_scene(&scene);
 	mlx_loop(env.mlx);
 	return (0);
 }

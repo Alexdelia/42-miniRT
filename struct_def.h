@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 01:43:00 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/29 16:23:16 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/30 15:04:30 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,5 +221,28 @@ typedef struct		s_phong
 	double			diffuse;
 	double			specular;
 }					t_phong;
+
+typedef struct		s_header
+{
+	char			bmp_letters[2];
+	unsigned int	file_size;
+	unsigned int	reserved_bytes;
+	unsigned int	buffer_offset;
+}					t_header;
+
+typedef struct		s_info
+{
+	unsigned int	info_size;
+	int				W;
+	int				H;
+	unsigned short	color_planes;
+	unsigned short	color_depth;
+	unsigned int	compression_method;
+	unsigned int	raw_data_size;
+	int				horizontal_res;
+	int				vertical_res;
+	unsigned int	color_table_entries;
+	unsigned int	important_colors
+}					t_info;
 
 #endif

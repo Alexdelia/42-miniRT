@@ -6,7 +6,7 @@
 /*   By: user42 <adelille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 22:31:43 by user42            #+#    #+#             */
-/*   Updated: 2021/01/18 09:38:52 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/30 15:25:01 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 int	ft_error(char *text, int type)
 {
 	if (type == 0)
-		ft_putstr_fd(text, 1);
+		ft_putstr_fd(text, 2);
 	else if (type == MALLOC)
 	{
-		ft_putstr_fd("Malloc error\n", 1);
-		ft_putstr_fd("miniRT stop and free all the allocated memories\n", 1);
+		ft_putstr_fd("Malloc error\n", 2);
+		ft_putstr_fd("miniRT stop and free all the allocated memories\n", 2);
 	}
 	return (-1);
 }

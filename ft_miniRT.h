@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:02:06 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/29 16:50:16 by adelille         ###   ########.fr       */
+/*   Updated: 2021/01/30 15:34:09 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ int			ft_check_only_letter(char *line);
 int			ft_render(t_scene scene, t_env *env);
 void		ft_render_pixel(t_scene scene, t_img *img, t_ray ray, int index);
 t_phong		ft_phong(t_ray ray, t_inter inter, t_vector l_pos);
+t_matrix	ft_look_at(t_vector cam_dir);
 
-//int			ft_save_bmp(...);
+int			ft_save_bmp(int ac, char **av, t_scene *scene, t_env *env);
 
 int			ft_display(t_env *env, int nb_cam, t_scene *scene);
 
