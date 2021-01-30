@@ -6,19 +6,27 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2021/01/29 16:42:58 by adelille         ###   ########.fr        #
+#    Updated: 2021/01/30 16:10:01 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = miniRT
+CC = clang -Wall -Werror -Wextra
+RM = rm -rf
 
 LBPATH = ./libft/
 LBNAME = $(LBPATH)libft.a
+LBINC = -I$(LBPATH)
 
 MLXPATH = ./mlx/
 MLXNAME = $(MLXPATH)libmlx.a
+MLXINC = -I$(MLXPATH)
 
-SRCS = main.c \
+SRCSPATH = ./srcs/
+OBJSPATH = ./objs/
+INC = ./includes/
+
+SRCSNAME = main.c \
 	   ft_check.c \
 	   parse/ft_parse.c \
 	   parse/ft_parse_get.c \
@@ -45,32 +53,26 @@ SRCS = main.c \
 	   get_next_line/get_next_line.h \
 	   get_next_line/get_next_line_utils.c
 
-INCLUDE = miniRT.h \
-		  struct_def.h
-
-OBJS_NAME = ${SRCS:.c=.o}
-
-OBJS_PATH = ./objs/
-
-OBJS = $(addprefix $(OBJS_PATH), $(OBJS_NAME))
-
-CC	 =	clang -Wall -Werror -Wextra
+SRCS = $(addprefix $(SRCSPATH), $(SRCSNAME))
+OBJS = $(SRCS:.c=.o)
+#OBJS = $(addprefix $(OBJSPATH), $(OBJSNAME))
 
 # GRAPHICAL LFGLAGS (for linux):
-LDFLAGS		+=	-lX11 -lXext
-# - lmlx
+LDFLAGS		+=	-lXext -lX11
+# -lmlx
 
 # LDFLAGS (math.h)
 LDFLAGS		+=	-lm
 
-RM	 = rm -rf
-
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFTM) $(MLXM)
-	@make -C $(LBPATH)
-	@make -C $(MLXPATH)
-	$(CC) $(OBJS) $(LBNAME) $(MLXNAME) -o $(NAME) $(LDFLAGS)
+%.o: %.c
+	$(CC) -I$(INC) -Imlx $(LBINC) -c $< -o $@
+
+$(NAME): $(OBJS)
+	make -C $(LBPATH)
+	make -C $(MLXPATH)
+	$(CC) $(OBJS) $(MLXNAME) $(LBNAME) -L$(MLXPATH) -L$(LBPATH) $(LBINC) $(MLXINC) -I$(INC) $(LDFLAGS) -o $(NAME)
 	$(info miniRT compiled !)
 
 $(LIBFTM):
@@ -79,9 +81,9 @@ $(LIBFTM):
 $(MLXM):
 	make -C $(MLXPATH) -f Makefile
 
-$(OBJS_PATH)%.o : %.c
-	@mkdir $(OBJS_PATH) 2> /dev/null || true
-	@$(CC) -I $(INCLUDE) -c $< -o $@
+#$(OBJSPATH)%.o : %.c
+#	@mkdir $(OBJSPATH) 2> /dev/null || true
+#	@$(CC) -I $(INC) -c $< -o $@
 
 libft:	$(LIBFTM)
 
@@ -91,7 +93,7 @@ clean:
 	$(RM) $(OBJS)
 	make -C $(LBPATH) -f Makefile clean
 	make -C $(MLXPATH) -f Makefile clean
-	@rmdir $(OBJS_PATH) 2> /dev/null || true
+	#@rmdir $(OBJSPATH) 2> /dev/null || true
 
 fclean: clean
 	$(RM) $(NAME) $(MLXM)
