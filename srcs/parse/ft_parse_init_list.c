@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 10:17:24 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/29 15:41:28 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/01 10:56:59 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ static int	ft_init_obj_list(t_obj_list *lst, int n, int type)
 			!(lst->type = malloc(sizeof(int) * n)))
 		return (0);
 	if (type != 6)
-		if (!(lst->pos = malloc(sizeof(t_vect) * n)))
+		if (!(lst->pos = malloc(sizeof(t_vector) * n)))
 			return (0);
 	if (type != 2 && type != 6)
-		if (!(lst->rot = malloc(sizeof(t_vect) * n)))
+		if (!(lst->rot = malloc(sizeof(t_vector) * n)))
 			return (0);
 	if (type == 2 || type == 5)
 		if (!(lst->diameter = malloc(sizeof(double) * n)))
@@ -57,9 +57,9 @@ static int	ft_init_obj_list(t_obj_list *lst, int n, int type)
 			return (0);
 	if (type == 6)
 	{
-		lst->points[0] = malloc(sizeof(t_vect) * n);
-		lst->points[1] = malloc(sizeof(t_vect) * n);
-		lst->points[2] = malloc(sizeof(t_vect) * n);
+		lst->points[0] = malloc(sizeof(t_vector) * n);
+		lst->points[1] = malloc(sizeof(t_vector) * n);
+		lst->points[2] = malloc(sizeof(t_vector) * n);
 		if (lst->points[0] == NULL || lst->points[1] == NULL ||
 				lst->points[2] == NULL)
 			return (0);
@@ -73,9 +73,9 @@ static int	ft_init_cam_list(t_camera_list *list, int n)
 		return (0);
 	if (!(list->fov = malloc(sizeof(double) * n)))
 		return (0);
-	if (!(list->rot = malloc(sizeof(t_vect) * n)))
+	if (!(list->rot = malloc(sizeof(t_vector) * n)))
 		return (0);
-	if (!(list->pos = malloc(sizeof(t_vect) * n)))
+	if (!(list->pos = malloc(sizeof(t_vector) * n)))
 		return (0);
 	return (1);
 }
@@ -88,9 +88,9 @@ static int	ft_init_light_list(t_light_list *list, int n)
 		return (0);
 	if (!(list->ratio = malloc(sizeof(double) * n)))
 		return (0);
-	if (!(list->pos = malloc(sizeof(t_vect) * n)))
+	if (!(list->pos = malloc(sizeof(t_vector) * n)))
 		return (0);
-	if (!(list->dir = malloc(sizeof(t_vect) * n)))
+	if (!(list->dir = malloc(sizeof(t_vector) * n)))
 		return (0);
 	if (!(list->distance = malloc(sizeof(double) * n)))
 		return (0);
