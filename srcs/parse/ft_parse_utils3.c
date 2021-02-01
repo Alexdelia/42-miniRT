@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 10:51:59 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/29 15:41:55 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/01 10:28:38 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		ft_get_rgba(char **line)
 	return (rgb);
 }
 
-int		ft_get_vect(char **line, int is_unit, t_vect *a)
+int		ft_get_vect(char **line, int is_unit, t_vector *a)
 {
 	while ((**line >= 8 && **line <= 14) || **line == 32)
 		*line += 1;

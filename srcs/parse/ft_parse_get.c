@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 10:31:42 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/30 16:44:12 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 10:38:40 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ int		ft_get_light(char *line, t_scene *scene)
 	if (*line == '.')
 		line++;
 	ft_while_num(&line);
-	scene->lights.rgba[index] = ft_get_rgba(&line);
-	if (scene->lights.rgba[index] < 0)
+	scene->lights.colors[index] = ft_get_rgba(&line);
+	if (scene->lights.colors[index] < 0)
 		return (0);
 	index++;
 	return (1);

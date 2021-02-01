@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:02:06 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/30 16:42:18 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 10:40:44 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int			ft_display(t_env *env, int nb_cam, t_scene *scene);
 int			ft_error(char *text, int type);
 int			ft_exit(char *text);
 int			ft_strcmp(char *str, char *cmp);
+double		ft_atof(char *str);
 
 void		ft_free_scene(t_scene *scene);
 int			ft_free_s(char *error, t_scene *scene);
@@ -59,7 +60,20 @@ t_inter		ft_square(t_ray ray, t_vector pos, t_vector rot, double H);
 t_inter		ft_triangle(t_ray ray, t_vector a, t_vector b, t_vector c);
 t_inter		ft_cylinder(t_ray ray, t_pack cylinder, int id);
 
+int			ft_isnum(char **line);
+int			ft_while_num(char **line);
+int			ft_iscomma_inc(char **line);
+int			ft_while_num_or_neg(char **line);
+int			ft_isnum_neg(char **line);
 int			ft_while_wspace(char **line);
+int			ft_parse_line_ret(char *line);
+int			ft_get_rgba(char **line);
+int			ft_get_vect(char **line, int is_unit, t_vector *a);
+int			ft_atoi_error(char **str, int *nb);
+int			ft_get_resolution(char **line, t_scene *scene);
+int			ft_get_ambient_light(char *line, t_scene *scene);
+int			ft_get_light(char *line, t_scene *scene);
+int			ft_get_camera(char *line, t_scene *scene);
 
 int			adjust_int(int color);
 void		adjust_array(double *rgb);

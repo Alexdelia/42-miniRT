@@ -6,13 +6,13 @@
 /*   By: user42 <adelille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 22:31:43 by user42            #+#    #+#             */
-/*   Updated: 2021/01/30 15:25:01 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/01 10:34:48 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_miniRT.h"
 
-int	ft_error(char *text, int type)
+int		ft_error(char *text, int type)
 {
 	if (type == 0)
 		ft_putstr_fd(text, 2);
@@ -24,13 +24,13 @@ int	ft_error(char *text, int type)
 	return (-1);
 }
 
-int	ft_exit(char *text)
+int		ft_exit(char *text)
 {
 	ft_putstr_fd(text, 1);
 	exit(1);
 }
 
-int	ft_free_exit(t_params *params)
+int		ft_free_exit(t_params *params)
 {
 	int	i;
 
@@ -48,7 +48,7 @@ int	ft_free_exit(t_params *params)
 	return (1);
 }
 
-int	ft_strcmp(char *str, char *cmp)
+int		ft_strcmp(char *str, char *cmp)
 {
 	int	i;
 
@@ -60,4 +60,33 @@ int	ft_strcmp(char *str, char *cmp)
 		i++;
 	}
 	return (1);
+}
+
+double	ft_atof(char *str)
+{
+	double	res;
+	double	neg;
+	double	divider;
+	size_t	i;
+
+	divider = 0.1;
+	res = 0;
+	neg = 1;
+	i = -1;
+	while (str[i] < '0' || str[i] > '9')
+		if (str[i++] == '-')
+			neg = -1;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = res * 10 + str[i++] - 48;
+	}
+	if (str[i] == '.')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = res + (str[i] - 48) * divider;
+		divider /= 10;
+		i++;
+	}
+	return (res * sign);
 }
