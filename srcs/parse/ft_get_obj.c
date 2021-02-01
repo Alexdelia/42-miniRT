@@ -6,13 +6,13 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 11:00:18 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 11:02:15 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/01 11:04:39 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 
-void	ft_push_to_array(t_obj_list *lst, t_obj obj, size_t *i)
+static void	ft_push_to_array(t_obj_list *lst, t_obj obj, size_t *i)
 {
 	lst->type[*i] = obj.type;
 	lst->id[*i] = obj.id;
@@ -34,7 +34,7 @@ void	ft_push_to_array(t_obj_list *lst, t_obj obj, size_t *i)
 	*i += 1;
 }
 
-void	ft_push_to_scene(t_scene *scene, t_obj obj)
+static void	ft_push_to_scene(t_scene *scene, t_obj obj)
 {
 	static size_t spheres_index = 0;
 	static size_t planes_index = 0;
@@ -54,7 +54,7 @@ void	ft_push_to_scene(t_scene *scene, t_obj obj)
 		ft_push_to_array(&scene->triangles, obj, &triangles_index);
 }
 
-int		ft_check_letters(char **line)
+static int	ft_check_letters(char **line)
 {
 	if (*line + 2)
 		*line += 2;
@@ -67,7 +67,7 @@ int		ft_check_letters(char **line)
 	return (1);
 }
 
-int		ft_get_obj(char *line, t_scene *scene, int type, int id)
+int			ft_get_obj(char *line, t_scene *scene, int type, int id)
 {
 	t_obj	obj;
 
