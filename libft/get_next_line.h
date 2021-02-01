@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 13:43:14 by adelille          #+#    #+#             */
-/*   Updated: 2020/11/20 11:27:50 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/01 11:57:42 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,5 @@
 int		get_next_line(int fd, char **line);
 
 char	*gnl_ft_strjoin(char *s1, char *s2);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strdup(const char *s);
-size_t	ft_strlen(const char *str);
 
 #endif
