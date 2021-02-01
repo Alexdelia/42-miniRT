@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:02:06 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 12:21:12 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 12:39:51 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,10 @@ int			ft_get_ambient_light(char *line, t_scene *scene);
 int			ft_get_light(char *line, t_scene *scene);
 int			ft_get_camera(char *line, t_scene *scene);
 int			ft_get_obj(char *line, t_scene *scene, int type, int id);
+int			ft_get_pos(char **line, t_obj *obj);
+int			ft_get_rot(char **line, t_obj *obj);
+int			ft_get_diam(char **line, t_obj *obj);
+int			ft_get_height(char **line, t_obj *obj);
 
 int			adjust_int(int color);
 void		adjust_array(double *rgb);
