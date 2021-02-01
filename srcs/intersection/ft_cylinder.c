@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 15:45:05 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/29 16:07:50 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/01 11:30:23 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ t_inter			ft_cylinder(t_ray ray, t_pack cylinder, int id)
 	inter.hit = FALSE;
 	inter.id = id;
 	new_ray.origin = ray.origin;
-	cylinder.rot = ft_normalize(cylinde.rot);
+	cylinder.rot = ft_normalize(cylinder.rot);
 	new_ray.direction = ft_cross(ray.direction, cylinder.rot);
 	c_to_o = ft_sub(ray.origin, cylinder.pos);
 	delta.a = ft_dot(new_ray.direction, new_ray.direction);
 	delta.b = 2 * ft_dot(new_ray.direction, ft_cross(c_to_o, cylinder.rot));
-	delta.c = ft_dot(ft_corss(c_to_o, cylinder.rot),
+	delta.c = ft_dot(ft_cross(c_to_o, cylinder.rot),
 			ft_cross(c_to_o, cylinder.rot)) - pow(cylinder.diameter / 2, 2);
 	delta.delta = pow(delta.b, 2) - 4 * delta.c * delta.a;
 	if (delta.delta < 0)
@@ -56,5 +56,5 @@ t_inter			ft_cylinder(t_ray ray, t_pack cylinder, int id)
 	if (inter.t2 < 0)
 		return (inter);
 	inter.t = (inter.t1 > 0 ? inter.t1 : inter.t2);
-	return (ft_find_edges(cylinder, ray, inter));
+	return (ft_edge(cylinder, ray, inter));
 }

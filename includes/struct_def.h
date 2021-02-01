@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 01:43:00 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/30 16:13:08 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 11:44:04 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,6 @@ typedef struct		s_ray
 	t_vector		origin;
 	t_vector		direction;
 }					t_ray;
-t_ray				ft_fill_ray(double x, double y,
-							double z, t_vector direction);
 
 typedef struct		s_inter
 {
@@ -104,7 +102,8 @@ typedef	struct		s_camera_list
 typedef struct		s_light
 {
 	t_vector		pos;
-	t_vector		rot;
+	t_vector		dir;
+	double			distance;
 	double			ratio;
 	int				colors;
 	int				id;
@@ -113,7 +112,8 @@ typedef struct		s_light
 typedef struct		s_light_list
 {
 	t_vector		*pos;
-	t_vector		*rot;
+	t_vector		*dir;
+	double			*distance;
 	double			*ratio;
 	int				*colors;
 	int				*id;

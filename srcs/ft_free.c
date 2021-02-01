@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 09:54:56 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/29 15:42:54 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/01 11:45:16 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	ft_free_light_list(t_light_list *list)
 {
 	free(list->id);
-	free(list->rgba);
+	free(list->colors);
 	free(list->ratio);
 	free(list->pos);
 	free(list->dir);
@@ -36,7 +36,7 @@ static int	ft_free_obj_list(t_obj_list *lst, int type)
 {
 	free(lst->id);
 	free(lst->type);
-	free(lst->rgba);
+	free(lst->color);
 	if (type != 6)
 		free(lst->pos);
 	if (type != 2 && type != 6)
@@ -44,7 +44,7 @@ static int	ft_free_obj_list(t_obj_list *lst, int type)
 	if (type == 2 || type == 5)
 		free(lst->diameter);
 	if (type == 4 || type == 5)
-		free(lst->height);
+		free(lst->H);
 	if (type == 6)
 	{
 		free(lst->points[0]);

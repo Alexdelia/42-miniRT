@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 17:59:14 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/29 15:59:29 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/01 11:22:49 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_miniRT.h"
+#include "miniRT.h"
 
 static t_inter	ft_get_min(t_inter min, t_inter current, t_obj_list lst, int i)
 {
@@ -26,7 +26,7 @@ static t_inter	ft_get_min(t_inter min, t_inter current, t_obj_list lst, int i)
 	return (min);
 }
 
-static t_inter	ft_end_triangle(t_scene, scene, t_ray ray, t_inter min)
+static t_inter	ft_end_triangle(t_scene scene, t_ray ray, t_inter min)
 {
 	size_t	i;
 	t_inter	current;
@@ -44,13 +44,13 @@ static t_inter	ft_end_triangle(t_scene, scene, t_ray ray, t_inter min)
 }
 
 static t_inter	ft_end_cylinder(t_scene scene, t_ray ray,
-		t_inter min, int currend_id);
+		t_inter min, int current_id)
 {
 	size_t	i;
 	t_inter	current;
 	t_pack	pack;
 
-	i - -1;
+	i = -1;
 	(void)current_id;
 	while (++i < scene.nb_of.cylinders)
 	{
@@ -67,7 +67,7 @@ static t_inter	ft_end_cylinder(t_scene scene, t_ray ray,
 	return (min);
 }
 
-t_inter			ft_objs_inter(t_scene scene, t_ray ray, int current_id, int on)
+t_inter			ft_objs_inter(t_scene scene, t_ray ray, int current_id)
 {
 	size_t	i;
 	t_inter	min;
@@ -87,9 +87,9 @@ t_inter			ft_objs_inter(t_scene scene, t_ray ray, int current_id, int on)
 		min = ft_get_min(min, ft_plane(ray, scene.planes.pos[i],
 						scene.planes.rot[i]), scene.planes, i);
 	i = -1;
-	while (++i < scene.nb_of.square)
-		min = ft_get_min(min, ft_square(ray, scene.squaress.pos[i]
-						scene.squares.rot[i], scene.squares.H),
+	while (++i < scene.nb_of.squares)
+		min = ft_get_min(min, ft_square(ray, scene.squares.pos[i],
+						scene.squares.rot[i], scene.squares.H[i]),
 						scene.squares, i);
 	min = ft_end_triangle(scene, ray, min);
 	min = ft_end_cylinder(scene, ray, min, current_id);

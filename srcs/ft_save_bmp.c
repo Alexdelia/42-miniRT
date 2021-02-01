@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 07:15:58 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/30 15:32:01 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/01 11:30:42 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_miniRT.h"
+#include "miniRT.h"
 
 static void		ft_init_header(t_header *header, t_scene scene)
 {

@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 15:32:02 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/29 15:37:58 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/01 11:25:54 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "miniRT.h"
 
 static int		ft_check_edge(t_vector p, t_vector a,
 			t_vector b, t_vector normal)
@@ -37,8 +37,8 @@ t_inter			ft_triangle(t_ray ray, t_vector a, t_vector b, t_vector c)
 	ab = ft_sub(b, a);
 	ac = ft_sub(c, a);
 	normal = ft_normalize(ft_cross(ab, ac));
-	inter = ft_plane_collision(ray, b, normal);
-	if (inter.hit = TRUE)
+	inter = ft_plane(ray, b, normal);
+	if (inter.hit == TRUE)
 	{
 		if (!ft_check_edge(inter.coord, a, b, normal) ||
 					!ft_check_edge(inter.coord, b, c, normal) ||

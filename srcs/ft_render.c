@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 09:03:43 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/30 14:55:52 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/01 11:13:01 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_miniRT.h"
+#include "miniRT.h"
 
 static t_vector	ft_get_pixel_pos(t_scene scene, int x, int y, t_camera camera)
 {

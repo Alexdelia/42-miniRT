@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 10:17:24 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 10:56:59 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 11:12:44 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int	ft_init_obj_list(t_obj_list *lst, int n, int type)
 		if (!(lst->diameter = malloc(sizeof(double) * n)))
 			return (0);
 	if (type == 4 || type == 5)
-		if (!(lst->height = malloc(sizeof(double) * n)))
+		if (!(lst->H = malloc(sizeof(double) * n)))
 			return (0);
 	if (type == 6)
 	{
@@ -64,7 +64,7 @@ static int	ft_init_obj_list(t_obj_list *lst, int n, int type)
 				lst->points[2] == NULL)
 			return (0);
 	}
-	return ((lst->rgba = malloc(sizeof(int) * n)) == NULL ? 0 : 1);
+	return ((lst->color = malloc(sizeof(int) * n)) == NULL ? 0 : 1);
 }
 
 static int	ft_init_cam_list(t_camera_list *list, int n)
@@ -84,7 +84,7 @@ static int	ft_init_light_list(t_light_list *list, int n)
 {
 	if (!(list->id = malloc(sizeof(int) * n)))
 		return (0);
-	if (!(list->rgba = malloc(sizeof(int) * n)))
+	if (!(list->colors = malloc(sizeof(int) * n)))
 		return (0);
 	if (!(list->ratio = malloc(sizeof(double) * n)))
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 23:29:29 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/30 14:52:10 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/01 11:34:11 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ t_matrix		ft_look_at(t_vector cam_dir)
 	return (m);
 }
 
-static int		ft_putstrimg(char *text, int cam_nb);
+static void		ft_putstrimg(char *text, int cam_nb)
 {
-	ft_putstr(text);
-	ft_putstr(ft_itoa(cam_nb));
+	ft_putstr_fd(text, 1);
+	ft_putstr_fd(ft_itoa(cam_nb), 1);
 	write(1, "\n", 1);
 }
 
@@ -44,8 +44,8 @@ static int		ft_img_to_window(int keycode, t_params *params)
 			params->i = 0;
 		else
 			params->i += 1;
-			ft_putstr("Everything is rendered, press Space t
-					o go to the next images\n");
+			ft_putstr_fd("Everything is rendered, press Space to", 1);
+			ft_putstr_fd("go to the next images\n", 1);
 			ft_putstrimg("Camera number: ", params->i);
 			mlx_put_image_to_window(params->env->mlx, params->env->win,
 					params->env->img[params->i].addr, 0, 0);

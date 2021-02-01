@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:02:06 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 11:05:35 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/01 11:39:53 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void		ft_exit_parser(int nb_lines, char **scene_lines, int i, t_scene *scene);
 
 int			ft_render(t_scene scene, t_env *env);
 void		ft_render_pixel(t_scene scene, t_img *img, t_ray ray, int index);
+t_inter		ft_objs_inter(t_scene scene, t_ray ray, int current_id);
 t_phong		ft_phong(t_ray ray, t_inter inter, t_vector l_pos);
 t_matrix	ft_look_at(t_vector cam_dir);
 
@@ -47,6 +48,7 @@ int			ft_display(t_env *env, int nb_cam, t_scene *scene);
 
 int			ft_error(char *text, int type);
 int			ft_exit(char *text);
+int			ft_free_exit(t_params *params);
 int			ft_strcmp(char *str, char *cmp);
 double		ft_atof(char *str);
 
@@ -54,6 +56,7 @@ void		ft_free_scene(t_scene *scene);
 int			ft_free_s(char *error, t_scene *scene);
 void		ft_free(t_scene *scene);
 
+void		ft_get_normal(t_ray ray, t_vector obj_pos, t_inter *inter);
 t_inter		ft_sphere(t_ray ray, t_vector pos, double diameter, int id);
 t_inter		ft_plane(t_ray ray, t_vector point, t_vector normal);
 t_inter		ft_square(t_ray ray, t_vector pos, t_vector rot, double H);

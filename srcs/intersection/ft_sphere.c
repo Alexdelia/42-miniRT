@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 17:14:06 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/29 15:39:55 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/01 11:27:33 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int		ft_get_distance(t_delta delta, t_inter *inter)
 	return (1);
 }
 
-static void		ft_get_normal(t_ray ray, t_vector obj_pos, t_inter *inter)
+void			ft_get_normal(t_ray ray, t_vector obj_pos, t_inter *inter)
 {
 	ray.direction.x *= inter->t;
 	ray.direction.y *= inter->t;
@@ -53,7 +53,7 @@ inline t_inter	ft_sphere(t_ray ray, t_vector pos, double diameter, int id)
 		return (inter);
 	inter.hit = TRUE;
 	ft_get_normal(ray, pos, &inter);
-	if (dot(inter.normal, ray.direction) > 0)
+	if (ft_dot(inter.normal, ray.direction) > 0)
 			inter.normal = ft_scale(inter.normal, -1);
 	return (inter);
 }

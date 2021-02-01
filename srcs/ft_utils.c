@@ -6,11 +6,11 @@
 /*   By: user42 <adelille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 22:31:43 by user42            #+#    #+#             */
-/*   Updated: 2021/02/01 10:34:48 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 11:40:37 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_miniRT.h"
+#include "miniRT.h"
 
 int		ft_error(char *text, int type)
 {
@@ -44,6 +44,7 @@ int		ft_free_exit(t_params *params)
 	mlx_destroy_display(params->env->mlx);
 	free(params->env->img);
 	free(params->env->mlx);
+	free(params);
 	exit(0);
 	return (1);
 }
@@ -88,5 +89,5 @@ double	ft_atof(char *str)
 		divider /= 10;
 		i++;
 	}
-	return (res * sign);
+	return (res * neg);
 }

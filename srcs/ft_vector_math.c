@@ -6,11 +6,11 @@
 /*   By: user42 <adelille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 02:36:08 by user42            #+#    #+#             */
-/*   Updated: 2021/01/23 18:17:56 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/01 11:40:49 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_miniRT.h"
+#include "miniRT.h"
 
 t_vector	ft_create_vector(double x, double y, double z)
 {
