@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:02:06 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 11:49:27 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 12:07:35 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@
 # include "../libft/libft.h"
 # include "../mlx/mlx.h"
 # include "struct_def.h"
+# include "get_next_line.h"
 
 # include <fcntl.h>
 # include <math.h>
 # include <stdio.h>
+# include <limits.h>
+# include <stdlib.h>
 
 # define TRUE 1
 # define FALSE 0
@@ -95,5 +98,8 @@ t_vector	ft_cross(t_vector a, t_vector b);
 t_vector	ft_scale(t_vector a, double b);
 double		ft_max(double a, double b);
 double		ft_min(double a, double b);
+
+int			get_next_line(int fd, char **line);
+char		*gnl_ft_strjoin(char *s1, char *s2);
 
 #endif
