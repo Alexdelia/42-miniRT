@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2021/02/01 12:04:38 by user42           ###   ########.fr        #
+#    Updated: 2021/02/01 12:31:07 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,8 +34,10 @@ SRCSNAME = main.c \
 	   parse/ft_parse_utils.c \
 	   parse/ft_parse_utils2.c \
 	   parse/ft_parse_utils3.c \
+	   parse/ft_get_obj.c \
 	   ft_render.c \
 	   ft_light.c \
+	   ft_color.c \
 	   ft_phong.c \
 	   intersection/ft_intersection.c \
 	   intersection/ft_sphere.c \

@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 11:00:18 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 11:04:39 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/01 12:32:01 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	ft_push_to_array(t_obj_list *lst, t_obj obj, size_t *i)
 		lst->diameter[*i] = obj.diameter;
 	if (obj.type == 4 || obj.type == 5)
 		lst->H[*i] = obj.H;
-	lst->rgba[*i] = obj.rgba;
+	lst->color[*i] = obj.colors;
 	if (obj.type == 6)
 	{
 		lst->points[0][*i] = obj.points[0];

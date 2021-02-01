@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:02:06 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 12:09:10 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 12:21:12 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@
 # define FALSE 0
 # define MALLOC -1
 # define PHONG_R 80
+
+# define OPEN_MAX 256
+# define BUFFER_SIZE 2048
 
 int			ft_check_scene(t_scene scene);
 int			ft_parse(char *file, t_scene *scene);
