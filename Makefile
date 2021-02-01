@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2021/01/30 16:10:01 by user42           ###   ########.fr        #
+#    Updated: 2021/02/01 11:50:06 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,9 +49,6 @@ SRCSNAME = main.c \
 	   ft_vector_math.c \
 	   ft_fill_struct.c \
 	   ft_free.c \
-	   get_next_line/get_next_line.c \
-	   get_next_line/get_next_line.h \
-	   get_next_line/get_next_line_utils.c
 
 SRCS = $(addprefix $(SRCSPATH), $(SRCSNAME))
 OBJS = $(SRCS:.c=.o)
