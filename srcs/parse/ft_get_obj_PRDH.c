@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 12:37:14 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 12:38:21 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/01 12:42:38 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "miniRT.h"
 
 int		ft_get_pos(char **line, t_obj *obj)
 {

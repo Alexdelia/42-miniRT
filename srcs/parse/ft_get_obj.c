@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 11:00:18 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 12:32:01 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 12:42:12 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ int			ft_get_obj(char *line, t_scene *scene, int type, int id)
 	}
 	while ((*line >= 8 && *line <= 14) || *line == 32)
 		line++;
-	obj.rgba = ft_get_rgba(&line);
-	if (obj.rgba < 0)
+	obj.colors = ft_get_rgba(&line);
+	if (obj.colors < 0)
 		return (0);
 	ft_push_to_scene(scene, obj);
 	return (1);
