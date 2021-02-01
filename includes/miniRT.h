@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:02:06 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 12:07:35 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 12:09:10 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "../libft/libft.h"
 # include "../mlx/mlx.h"
 # include "struct_def.h"
-# include "get_next_line.h"
 
 # include <fcntl.h>
 # include <math.h>

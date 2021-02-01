@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 13:42:55 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 11:57:21 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/01 12:09:45 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "miniRT.h"
 
 char	*gnl_ft_strjoin(char *s1, char *s2)
 {

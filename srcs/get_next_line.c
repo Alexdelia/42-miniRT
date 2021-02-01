@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 11:45:40 by adelille          #+#    #+#             */
-/*   Updated: 2020/11/20 11:35:05 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/01 12:09:31 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "miniRT.h"
 
 int		check_newline(char *store)
 {
