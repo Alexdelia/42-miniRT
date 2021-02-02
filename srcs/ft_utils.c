@@ -6,7 +6,7 @@
 /*   By: user42 <adelille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 22:31:43 by user42            #+#    #+#             */
-/*   Updated: 2021/02/01 11:40:37 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/02 18:47:25 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,9 @@ int		ft_strcmp(char *str, char *cmp)
 	int	i;
 
 	i = 0;
-	while (str[i] && cmp[i])
-	{
-		if (!(str[i] == cmp[i]))
-			return (0);
+	while (str[i] && cmp[i] && str[i] == cmp[i])
 		i++;
-	}
-	return (1);
+	return (str[i] - cmp[i]);
 }
 
 double	ft_atof(char *str)
