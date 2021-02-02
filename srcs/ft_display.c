@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 23:29:29 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 11:34:11 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/02 17:23:09 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ static int		ft_img_to_window(int keycode, t_params *params)
 			params->i = 0;
 		else
 			params->i += 1;
-			ft_putstr_fd("Everything is rendered, press Space to", 1);
-			ft_putstr_fd("go to the next images\n", 1);
 			ft_putstrimg("Camera number: ", params->i);
 			mlx_put_image_to_window(params->env->mlx, params->env->win,
 					params->env->img[params->i].addr, 0, 0);
@@ -75,6 +73,8 @@ int				ft_display(t_env *env, int nb_cam, t_scene *scene)
 
 	env->win = mlx_new_window(env->mlx, env->size_x, env->size_y, "miniRT");
 	mlx_put_image_to_window(env->mlx, env->win, env->img[0].addr, 0, 0);
+	if(nb_cam > 1)
+		ft_putstr_fd("Press space to go to the next image\n", 1);
 	if (!(params = malloc(sizeof(t_params))))
 		return (0);
 	params->i = number;

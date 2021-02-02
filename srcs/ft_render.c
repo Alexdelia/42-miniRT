@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 09:03:43 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 11:13:01 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/02 18:08:14 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,9 @@ static void		ft_raycast(t_scene scene, t_env *env, t_camera camera, size_t i)
 			x++;
 		}
 		y++;
+		printf("\rImage number: %lu [%d%%]", i + 1, (y * 100) / scene.y);
 	}
+	printf("		\033[1;32mDone\033[0m\033[1m\n");
 }
 
 int			ft_render(t_scene scene, t_env *env)

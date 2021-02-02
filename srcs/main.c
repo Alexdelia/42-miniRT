@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:06:33 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/30 16:30:15 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/02 17:47:51 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,19 @@ int			main(int ac, char **av)
 	if (av[2])
 		save = ft_strcmp(av[2], "--save");
 	if (ac == 2 || (ac == 3 && save == 0))
+	{
+		printf("\033[1mParsing ...");
 		ft_parse(av[1], &scene);
+		printf("			\033[1;32mDone\033[0m\033[1m\n");
+	}
 	else
 		ft_exit("Error: wrong input\n");
 	ft_check_scene(scene);
 	ft_init_env(&scene, &env, save);
+	printf("Rendering %zu image%s ...\n", scene.nb_of.cameras,
+			(scene.nb_of.cameras > 1 ? "s" : ""));
 	ft_render(scene, &env);
+	ft_putstr_fd("Everything is rendered\n", 1);
 	ft_save_bmp(ac, av, &scene, &env);
 	ft_display(&env, scene.nb_of.cameras, &scene);
 	ft_free_scene(&scene);
