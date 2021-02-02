@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 07:24:02 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/30 16:29:55 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/02 17:12:08 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int			ft_check_scene(t_scene scene)
 {
 	if (scene.y <= 0 || scene.x <= 0)
 		ft_free_s("Error: Screen resolution can't be <= 0\n", &scene);
-	if (!(scene.ambient_light_ratio < 0 || scene.ambient_light_rgb < 0))
+	if (scene.ambient_light_ratio < 0 || scene.ambient_light_rgb < 0)
 		ft_free_s("Error: No ambient light\n", &scene);
 	if (scene.ambient_light_ratio < 0.0 || scene.ambient_light_ratio > 1.0)
 		ft_free_s("Error: Ambient light is < 0.0 or > 1.0\n", &scene);
