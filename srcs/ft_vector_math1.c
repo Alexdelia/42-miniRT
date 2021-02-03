@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vector_math.c                                   :+:      :+:    :+:   */
+/*   ft_vector_math1.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <adelille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 02:36:08 by user42            #+#    #+#             */
-/*   Updated: 2021/02/01 11:40:49 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 17:14:46 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
 
 t_vector	ft_create_vector(double x, double y, double z)
 {
@@ -24,7 +24,7 @@ t_vector	ft_create_vector(double x, double y, double z)
 
 double		ft_dot(t_vector a, t_vector b)
 {
-	return (a.x * b.x + a.y * b.y + a.z * b.z); 
+	return (a.x * b.x + a.y * b.y + a.z * b.z);
 }
 
 double		ft_get_norm(t_vector a)
@@ -42,62 +42,4 @@ t_vector	ft_normalize(t_vector a)
 	res.y = a.y / norm;
 	res.z = a.z / norm;
 	return (res);
-}
-
-t_vector	ft_add(t_vector a, t_vector b)
-{
-	t_vector	res;
-
-	res.x = a.x + b.x;
-	res.y = a.y + b.y;
-	res.z = a.z + b.z;
-	return (res);
-}
-
-t_vector	ft_sub(t_vector a, t_vector b)
-{
-	t_vector	res;
-
-	res.x = a.x - b.x;
-	res.y = a.y - b.y;
-	res.z = a.z - b.z;
-	return (res);
-}
-
-t_vector	ft_multiply(t_vector a, t_vector b)
-{
-	t_vector	res;
-
-	res.x = a.x * b.x;
-	res.y = a.y * b.y;
-	res.z = a.z * b.z;
-	return (res);
-}
-
-t_vector	ft_cross(t_vector a, t_vector b)
-{
-	t_vector	v;
-
-	v.x = (a.y * b.z) - (a.z * b.y);
-	v.y = (a.z * b.x) - (a.x * b.z);
-	v.z = (a.x * b.y) - (a.y * b.x);
-	return (v);
-}
-
-t_vector	ft_scale(t_vector a, double b)
-{
-	a.x *= b;
-	a.y *= b;
-	a.z *= b;
-	return (a);
-}
-
-double		ft_max(double a, double b)
-{
-	return (a > b ? a : b);
-}
-
-double		ft_min(double a, double b)
-{
-	return (a < b ? a : b);
 }

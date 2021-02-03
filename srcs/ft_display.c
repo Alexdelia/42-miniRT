@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 23:29:29 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/02 17:23:09 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 17:13:00 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
 
 t_matrix		ft_look_at(t_vector cam_dir)
 {
@@ -29,13 +29,6 @@ t_matrix		ft_look_at(t_vector cam_dir)
 	return (m);
 }
 
-static void		ft_putstrimg(char *text, int cam_nb)
-{
-	ft_putstr_fd(text, 1);
-	ft_putstr_fd(ft_itoa(cam_nb), 1);
-	write(1, "\n", 1);
-}
-
 static int		ft_img_to_window(int keycode, t_params *params)
 {
 	if (keycode == 32)
@@ -44,8 +37,10 @@ static int		ft_img_to_window(int keycode, t_params *params)
 			params->i = 0;
 		else
 			params->i += 1;
-			ft_putstrimg("Camera number: ", params->i);
-			mlx_put_image_to_window(params->env->mlx, params->env->win,
+		ft_putstr_fd("Camera number: ", 1);
+		ft_putstr_fd(ft_itoa(params->i), 1);
+		ft_putstr_fd("\n", 1);
+		mlx_put_image_to_window(params->env->mlx, params->env->win,
 					params->env->img[params->i].addr, 0, 0);
 	}
 	else if (keycode == 65307)
@@ -73,7 +68,7 @@ int				ft_display(t_env *env, int nb_cam, t_scene *scene)
 
 	env->win = mlx_new_window(env->mlx, env->size_x, env->size_y, "miniRT");
 	mlx_put_image_to_window(env->mlx, env->win, env->img[0].addr, 0, 0);
-	if(nb_cam > 1)
+	if (nb_cam > 1)
 		ft_putstr_fd("Press space to go to the next image\n", 1);
 	if (!(params = malloc(sizeof(t_params))))
 		return (0);

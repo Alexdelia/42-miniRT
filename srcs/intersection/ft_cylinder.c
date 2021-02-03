@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 15:45:05 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 11:30:23 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 17:19:40 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
 
 static t_inter	ft_edge(t_pack cylinder, t_ray ray, t_inter inter)
 {

@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/19 17:14:06 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 11:27:33 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 17:20:05 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
 
 static int		ft_get_distance(t_delta delta, t_inter *inter)
 {
@@ -54,6 +54,6 @@ inline t_inter	ft_sphere(t_ray ray, t_vector pos, double diameter, int id)
 	inter.hit = TRUE;
 	ft_get_normal(ray, pos, &inter);
 	if (ft_dot(inter.normal, ray.direction) > 0)
-			inter.normal = ft_scale(inter.normal, -1);
+		inter.normal = ft_scale(inter.normal, -1);
 	return (inter);
 }

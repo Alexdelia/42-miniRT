@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 15:32:02 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 11:25:54 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 17:20:28 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
 
 static int		ft_check_edge(t_vector p, t_vector a,
 			t_vector b, t_vector normal)

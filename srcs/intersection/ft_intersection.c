@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 17:59:14 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 11:22:49 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 17:19:48 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
 
 static t_inter	ft_get_min(t_inter min, t_inter current, t_obj_list lst, int i)
 {
@@ -71,7 +71,7 @@ t_inter			ft_objs_inter(t_scene scene, t_ray ray, int current_id)
 {
 	size_t	i;
 	t_inter	min;
-	
+
 	min.t = -1;
 	min.hit = FALSE;
 	i = -1;

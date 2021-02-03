@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 10:42:44 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/29 15:41:48 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/03 17:17:48 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
 
 int		ft_while_wspace(char **line)
 {

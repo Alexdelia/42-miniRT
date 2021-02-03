@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:06:33 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/02 17:47:51 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 17:15:44 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
 
 int			ft_init_env(t_scene *scene, t_env *env, int save)
 {
@@ -57,8 +57,6 @@ int			main(int ac, char **av)
 		ft_exit("Error: wrong input\n");
 	ft_check_scene(scene);
 	ft_init_env(&scene, &env, save);
-	printf("Rendering %zu image%s ...\n", scene.nb_of.cameras,
-			(scene.nb_of.cameras > 1 ? "s" : ""));
 	ft_render(scene, &env);
 	ft_putstr_fd("Everything is rendered\n", 1);
 	ft_save_bmp(ac, av, &scene, &env);

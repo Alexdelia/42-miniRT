@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 07:15:58 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/02 17:15:29 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 17:14:14 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
 
 static void		ft_init_header(t_header *header, t_scene scene)
 {
@@ -85,7 +85,7 @@ int				ft_save_bmp(int ac, char **av, t_scene *scene, t_env *env)
 	file_name = NULL;
 	if (ac == 3 && ft_strcmp(av[2], "--save") == 0)
 	{
-		ft_putstr_fd("Creating .bmp\n", 1); 
+		printf("Creating %s .bmp\n", file_name);
 		file_name = ft_locate(av[1]);
 		fd = open(file_name, O_WRONLY | O_TRUNC | O_CREAT, 0775);
 		if (fd < 0)
@@ -96,8 +96,6 @@ int				ft_save_bmp(int ac, char **av, t_scene *scene, t_env *env)
 		write(fd, &header.buffer_offset, 4);
 		write(fd, (char *)&info, 40);
 		write(fd, &env->img->buffer[0], scene->x * scene->y * 4);
-		ft_putstr_fd(file_name, 1);
-		ft_putstr_fd(" created\n", 1);
 		free(file_name);
 		ft_exit_save(scene, env);
 	}

@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 16:44:19 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/29 16:48:04 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/03 17:12:46 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
 
 int				adjust_int(int color)
 {
