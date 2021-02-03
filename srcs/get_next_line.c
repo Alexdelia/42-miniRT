@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 11:45:40 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 12:09:31 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 17:15:15 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
 
 int		check_newline(char *store)
 {
@@ -29,7 +29,7 @@ int		check_newline(char *store)
 int		sub_line_and_dup_store(char **store, char **line, int i)
 {
 	char	*tmp;
-	
+
 	*line = ft_substr(*store, 0, i);
 	tmp = ft_strdup(&(*store)[i + 1]);
 	free(*store);
@@ -68,7 +68,7 @@ int		get_next_line(int fd, char **line)
 	ssize_t		read_size;
 	int			i;
 
-	if (!line || fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE <= 0 )
+	if (!line || fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE <= 0)
 		return (-1);
 	while ((read_size = read(fd, buffer, BUFFER_SIZE)) > 0)
 	{

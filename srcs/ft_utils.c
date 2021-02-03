@@ -6,11 +6,11 @@
 /*   By: user42 <adelille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 22:31:43 by user42            #+#    #+#             */
-/*   Updated: 2021/02/02 18:47:25 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 17:14:25 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
 
 int		ft_error(char *text, int type)
 {

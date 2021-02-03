@@ -6,18 +6,18 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 18:29:53 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/29 15:39:43 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/03 17:19:57 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
 
 inline t_inter	ft_plane(t_ray ray, t_vector point, t_vector normal)
 {
 	t_inter	inter;
 	double	a;
 	double	b;
-	
+
 	inter.type = PLANE;
 	inter.hit = FALSE;
 	a = ft_dot(ft_sub(ray.origin, point), normal);

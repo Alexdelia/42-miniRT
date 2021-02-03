@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   miniRT.h                                           :+:      :+:    :+:   */
+/*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <adelille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/06 18:02:06 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 12:39:51 by adelille         ###   ########.fr       */
+/*   Created: 2021/02/03 17:12:12 by user42            #+#    #+#             */
+/*   Updated: 2021/02/03 17:12:13 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ int			ft_find(char *str, char *id);
 int			ft_check_only_letter(char *line);
 
 int			ft_parse_line(char *line, t_scene *scene);
-void		ft_exit_parser(int nb_lines, char **scene_lines, int i, t_scene *scene);
+void		ft_exit_parser(int nb_lines, char **scene_lines,
+				int i, t_scene *scene);
 
 int			ft_render(t_scene scene, t_env *env);
 void		ft_render_pixel(t_scene scene, t_img *img, t_ray ray, int index);
@@ -63,7 +64,7 @@ void		ft_free(t_scene *scene);
 void		ft_get_normal(t_ray ray, t_vector obj_pos, t_inter *inter);
 t_inter		ft_sphere(t_ray ray, t_vector pos, double diameter, int id);
 t_inter		ft_plane(t_ray ray, t_vector point, t_vector normal);
-t_inter		ft_square(t_ray ray, t_vector pos, t_vector rot, double H);
+t_inter		ft_square(t_ray ray, t_vector pos, t_vector rot, double ht);
 t_inter		ft_triangle(t_ray ray, t_vector a, t_vector b, t_vector c);
 t_inter		ft_cylinder(t_ray ray, t_pack cylinder, int id);
 

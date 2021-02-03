@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 01:43:00 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 11:44:04 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 17:11:35 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # define SQUARE 4
 # define CYLINDER 5
 # define TRIANGLE 6
+# define H ht
+# define W wt
 
 typedef struct		s_img
 {
@@ -134,7 +136,7 @@ typedef	struct		s_obj
 	t_vector		pos;
 	t_vector		rot;
 	double			diameter;
-	double			H;
+	double			ht;
 	int				colors;
 	t_vector		points[3];
 }					t_obj;
@@ -146,7 +148,7 @@ typedef	struct		s_obj_list
 	t_vector		*pos;
 	t_vector		*rot;
 	double			*diameter;
-	double			*H;
+	double			*ht;
 	int				*color;
 	t_vector		*points[3];
 }					t_obj_list;
@@ -193,7 +195,7 @@ typedef struct		s_pack
 	t_vector		pos;
 	t_vector		rot;
 	double			diameter;
-	double			H;
+	double			ht;
 }					t_pack;
 
 typedef struct		s_phong
@@ -213,8 +215,8 @@ typedef struct		s_header
 typedef struct		s_info
 {
 	unsigned int	info_size;
-	int				W;
-	int				H;
+	int				wt;
+	int				ht;
 	unsigned short	color_planes;
 	unsigned short	color_depth;
 	unsigned int	compression_method;

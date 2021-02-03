@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 11:00:18 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 12:42:12 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 17:16:51 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
 
 static void	ft_push_to_array(t_obj_list *lst, t_obj obj, size_t *i)
 {

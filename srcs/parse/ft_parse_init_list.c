@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 10:17:24 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 11:12:44 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 17:17:31 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
 
 int			ft_parse_line(char *line, t_scene *scene)
 {
@@ -97,7 +97,7 @@ static int	ft_init_light_list(t_light_list *list, int n)
 	return (1);
 }
 
-int		ft_init_scene_list(t_scene *scene)
+int			ft_init_scene_list(t_scene *scene)
 {
 	(void)scene;
 	if (!ft_init_light_list(&scene->lights, scene->nb_of.lights))

@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 09:03:43 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/02 18:08:14 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 17:14:02 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
 
 static t_vector	ft_get_pixel_pos(t_scene scene, int x, int y, t_camera camera)
 {
@@ -63,11 +63,13 @@ static void		ft_raycast(t_scene scene, t_env *env, t_camera camera, size_t i)
 	printf("		\033[1;32mDone\033[0m\033[1m\n");
 }
 
-int			ft_render(t_scene scene, t_env *env)
+int				ft_render(t_scene scene, t_env *env)
 {
 	size_t			i;
 	t_camera		camera;
 
+	printf("Rendering %zu image%s ...\n", scene.nb_of.cameras,
+			(scene.nb_of.cameras > 1 ? "s" : ""));
 	i = 0;
 	while (i < scene.nb_of.cameras)
 	{

@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 10:31:42 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 10:38:40 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 17:17:23 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
 
 int		ft_get_resolution(char **line, t_scene *scene)
 {

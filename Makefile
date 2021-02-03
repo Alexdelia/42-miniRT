@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2021/02/01 12:40:14 by adelille         ###   ########.fr        #
+#    Updated: 2021/02/03 17:19:20 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,11 +31,11 @@ SRCSNAME = main.c \
 	   parse/ft_parse.c \
 	   parse/ft_parse_get.c \
 	   parse/ft_parse_init_list.c \
-	   parse/ft_parse_utils.c \
+	   parse/ft_parse_utils1.c \
 	   parse/ft_parse_utils2.c \
 	   parse/ft_parse_utils3.c \
 	   parse/ft_get_obj.c \
-	   parse/ft_get_obj_PRDH.c \
+	   parse/ft_get_obj_prdh.c \
 	   ft_render.c \
 	   ft_light.c \
 	   ft_color.c \
@@ -49,7 +49,9 @@ SRCSNAME = main.c \
 	   ft_save_bmp.c \
 	   ft_display.c \
 	   ft_utils.c \
-	   ft_vector_math.c \
+	   ft_vector_math1.c \
+	   ft_vector_math2.c \
+	   ft_vector_math3.c \
 	   ft_fill_struct.c \
 	   ft_free.c \
 	   get_next_line.c \

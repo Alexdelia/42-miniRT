@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 06:10:39 by adelille          #+#    #+#             */
-/*   Updated: 2021/01/30 16:42:46 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 17:17:13 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
 
 int			ft_find(char *str, char *id)
 {
@@ -82,12 +82,11 @@ static char	**ft_add_line(char **tab, int nb_of_lines, char *line)
 	new_tab[i] = ft_strdup(line);
 	free(tab);
 	return (new_tab);
-
 }
 
 static char	**ft_get_lines(int fd, t_nb_obj *nb_obj, int *nb_lines)
 {
-	int		GNL;
+	int		gnl;
 	char	*line;
 	char	**tab;
 	int		nb_of_lines;
@@ -96,7 +95,7 @@ static char	**ft_get_lines(int fd, t_nb_obj *nb_obj, int *nb_lines)
 	line = NULL;
 	(void)nb_lines;
 	nb_of_lines = 0;
-	while ((GNL = get_next_line(fd, &line)) > 0)
+	while ((gnl = get_next_line(fd, &line)) > 0)
 	{
 		nb_of_lines += 1;
 		*nb_lines += 1;

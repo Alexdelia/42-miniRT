@@ -6,11 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 19:17:04 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 11:17:40 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 17:13:38 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "minirt.h"
 
 static t_color	ft_light_hit(t_inter inter,
 			t_scene scene, int i, t_color color)
