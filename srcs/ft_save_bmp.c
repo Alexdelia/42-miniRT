@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 07:15:58 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/03 17:14:14 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 17:32:11 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int				ft_save_bmp(int ac, char **av, t_scene *scene, t_env *env)
 	ft_init_header(&header, *scene);
 	ft_init_info(&info, *scene);
 	file_name = NULL;
-	if (ac == 3 && ft_strcmp(av[2], "--save") == 0)
+	if (ac == 3 && ft_strcmp(av[2], "-save") == 0)
 	{
 		printf("Creating %s .bmp\n", file_name);
 		file_name = ft_locate(av[1]);

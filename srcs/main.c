@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/06 18:06:33 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/03 17:15:44 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/03 17:31:51 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int			main(int ac, char **av)
 	ft_init_scene(&scene);
 	save = 1;
 	if (av[2])
-		save = ft_strcmp(av[2], "--save");
+		save = ft_strcmp(av[2], "-save");
 	if (ac == 2 || (ac == 3 && save == 0))
 	{
 		printf("\033[1mParsing ...");
