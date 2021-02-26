@@ -6,24 +6,22 @@
 /*   By: adelille <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 14:02:43 by adelille          #+#    #+#             */
-/*   Updated: 2020/11/18 07:48:46 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/26 08:25:20 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+static void	*ft_memmove_end(char *dest, const char *src, size_t n)
 {
-	int i;
+	int	i;
 
-	if (!dest && !src)
-		return (NULL);
 	if (dest > src)
 	{
 		i = (int)n - 1;
 		while (i >= 0)
 		{
-			*(char*)(dest + i) = *(char*)(src + i);
+			*(dest + i) = *(src + i);
 			i--;
 		}
 	}
@@ -32,9 +30,21 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		i = 0;
 		while (i < (int)n)
 		{
-			*(char*)(dest + i) = *(char*)(src + i);
+			*(dest + i) = *(src + i);
 			i++;
 		}
 	}
 	return (dest);
+}
+
+void		*ft_memmove(void *dest, const void *src, size_t n)
+{
+	char		*ndest;
+	const char	*nsrc;
+
+	if (!dest && !src)
+		return (NULL);
+	ndest = dest;
+	nsrc = src;
+	return (ft_memmove_end(ndest, nsrc, n));
 }

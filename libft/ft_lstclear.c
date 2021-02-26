@@ -6,7 +6,7 @@
 /*   By: user42 <adelille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 13:27:01 by user42            #+#    #+#             */
-/*   Updated: 2020/11/16 13:28:58 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/26 08:02:21 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 
 	if (!del || !lst || !*lst)
 		return ;
-	while (lst && *lst)
+	while (*lst)
 	{
 		tmp = (*lst)->next;
 		ft_lstdelone(*lst, del);

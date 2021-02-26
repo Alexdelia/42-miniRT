@@ -6,7 +6,7 @@
 /*   By: adelille <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 16:47:31 by adelille          #+#    #+#             */
-/*   Updated: 2020/11/17 19:38:30 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/26 08:05:31 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char
 	if (!to_find[0])
 		return ((char*)s);
 	i = 0;
-	while (s[i] && i < len)
+	while (i < len && s[i])
 	{
 		j = 0;
 		while (s[i + j] && to_find[j] &&

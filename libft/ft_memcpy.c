@@ -6,7 +6,7 @@
 /*   By: adelille <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 13:53:20 by adelille          #+#    #+#             */
-/*   Updated: 2020/11/18 07:48:21 by adelille         ###   ########.fr       */
+/*   Updated: 2021/02/26 07:54:11 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,19 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t i;
+	size_t		i;
+	char		*ndest;
+	const char	*nsrc;
 
-	if (!dest && !src)
+	ndest = dest;
+	nsrc = src;
+	if (!ndest && !nsrc)
 		return (NULL);
 	i = 0;
 	while (i < n)
 	{
-		*(char*)(dest + i) = *(char *)(src + i);
+		*(ndest + i) = *(nsrc + i);
 		i++;
 	}
-	return (dest);
+	return (ndest);
 }
