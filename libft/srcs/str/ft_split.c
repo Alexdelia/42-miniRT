@@ -6,13 +6,13 @@
 /*   By: adelille <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 02:30:16 by adelille          #+#    #+#             */
-/*   Updated: 2020/11/17 18:13:30 by adelille         ###   ########.fr       */
+/*   Updated: 2021/03/20 15:35:11 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		**ft_malloc_split(char const *s, char c)
+static char	**ft_malloc_split(char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
@@ -26,12 +26,13 @@ static char		**ft_malloc_split(char const *s, char c)
 			j++;
 		i++;
 	}
-	if (!(split = (char**)malloc(sizeof(s) * (j + 2))))
+	split = (char **)malloc(sizeof(s) * (j + 2));
+	if (!split)
 		return (NULL);
 	return (split);
 }
 
-static void		*ft_free_split(char **split, size_t elts)
+static void	*ft_free_split(char **split, size_t elts)
 {
 	size_t	i;
 
@@ -45,7 +46,7 @@ static void		*ft_free_split(char **split, size_t elts)
 	return (NULL);
 }
 
-static void		*ft_split_range(char **split, char const *s,
+static void	*ft_split_range(char **split, char const *s,
 		t_split_next *st, t_split_next *lt)
 {
 	split[lt->len] = ft_substr(s, st->start, st->len);
@@ -55,7 +56,7 @@ static void		*ft_split_range(char **split, char const *s,
 	return (split);
 }
 
-static void		*ft_split_by_char(char **split, char const *s, char c)
+static void	*ft_split_by_char(char **split, char const *s, char c)
 {
 	size_t			i;
 	t_split_next	st;
@@ -84,11 +85,12 @@ static void		*ft_split_by_char(char **split, char const *s, char c)
 	return (split);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**split;
 
-	if (!(split = ft_malloc_split(s, c)))
+	split = ft_malloc_split(s, c);
+	if (!split)
 		return (NULL);
 	if (!(ft_split_by_char(split, s, c)))
 		return (NULL);

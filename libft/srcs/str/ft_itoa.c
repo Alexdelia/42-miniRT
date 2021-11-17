@@ -6,20 +6,13 @@
 /*   By: adelille <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 02:22:35 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/26 07:00:45 by adelille         ###   ########.fr       */
+/*   Updated: 2021/10/21 19:42:26 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_abs(int nbr)
-{
-	if (nbr < 0)
-		nbr = -nbr;
-	return (nbr);
-}
-
-static void		ft_strrev(char *str)
+static void	ft_strrev(char *str)
 {
 	size_t	len;
 	size_t	i;
@@ -36,14 +29,15 @@ static void		ft_strrev(char *str)
 	}
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*str;
 	int		is_neg;
 	size_t	len;
 
 	is_neg = (n < 0);
-	if (!(str = ft_calloc(11 + is_neg, sizeof(*str))))
+	str = ft_calloc(11 + is_neg, sizeof(*str));
+	if (!str)
 		return (NULL);
 	if (n == 0)
 		str[0] = '0';

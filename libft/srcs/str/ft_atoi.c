@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/27 16:38:51 by adelille          #+#    #+#             */
-/*   Updated: 2020/11/18 08:29:32 by adelille         ###   ########.fr       */
+/*   Created: 2020/10/25 16:48:38 by adelille          #+#    #+#             */
+/*   Updated: 2021/03/20 15:19:17 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	ft_atoi(const char *nptr)
 {
-	void	*dst;
+	int	i;
+	int	res;
+	int	neg;
 
-	if (!(dst = malloc(nmemb * size)))
-		return (NULL);
-	ft_bzero(dst, nmemb * size);
-	return (dst);
+	i = 0;
+	res = 0;
+	neg = 1;
+	while (nptr[i] == '\t' || nptr[i] == '\v' || nptr[i] == '\n'
+		|| nptr[i] == '\f' || nptr[i] == '\r' || nptr[i] == ' ')
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			neg = -neg;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+		res = res * 10 + (nptr[i++] - 48);
+	return (res * neg);
 }

@@ -6,7 +6,7 @@
 /*   By: adelille <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 02:13:07 by adelille          #+#    #+#             */
-/*   Updated: 2020/11/17 17:31:22 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/20 15:29:15 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	ft_char_in_str(char c, char const *str)
 	return (0);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	start;
@@ -39,7 +39,8 @@ char		*ft_strtrim(char const *s1, char const *set)
 	end = ft_strlen(s1);
 	while (end > start && ft_char_in_str(s1[end - 1], set))
 		end--;
-	if (!(str = (char*)malloc(sizeof(*s1) * (end - start + 1))))
+	str = (char *)malloc(sizeof(*s1) * (end - start + 1));
+	if (!str)
 		return (NULL);
 	i = 0;
 	while (start < end)

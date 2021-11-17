@@ -6,14 +6,14 @@
 /*   By: user42 <adelille@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 17:12:12 by user42            #+#    #+#             */
-/*   Updated: 2021/02/03 17:12:13 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/17 16:05:42 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
 
-# include "../libft/libft.h"
+# include "../libft/includes/libft.h"
 # include "../mlx/mlx.h"
 # include "struct_def.h"
 

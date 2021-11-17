@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 01:58:29 by adelille          #+#    #+#             */
-/*   Updated: 2020/11/02 02:05:05 by adelille         ###   ########.fr       */
+/*   Created: 2020/11/07 02:56:13 by adelille          #+#    #+#             */
+/*   Updated: 2021/10/21 19:42:16 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
-	size_t	j;
-	char	*str;
+	char	str[13];
+	int		is_neg;
+	int		len;
 
-	if (!(str = (char*)malloc(sizeof(*s) * (len + 1))))
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (s[i])
+	is_neg = (n < 0);
+	ft_bzero(str, 13);
+	if (n == 0)
+		str[0] = '0';
+	len = 0;
+	while (n != 0)
 	{
-		if (i >= start && j < len)
-		{
-			str[j] = s[i];
-			j++;
-		}
-		i++;
+		str[len++] = '0' + ft_abs(n % 10);
+		n = (n / 10);
 	}
-	str[j] = '\0';
-	return (str);
+	if (is_neg)
+		str[len] = '-';
+	else if (len > 0)
+		len--;
+	while (len >= 0)
+		write(fd, &str[len--], 1);
 }

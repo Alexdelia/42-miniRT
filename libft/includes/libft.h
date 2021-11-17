@@ -6,7 +6,7 @@
 /*   By: adelille <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 15:47:54 by adelille          #+#    #+#             */
-/*   Updated: 2021/02/01 12:02:49 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/17 16:08:01 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,27 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
+# include <stdbool.h>
 
-typedef	struct	s_list
+# define TRUE 1
+# define FALSE 0
+
+# define STDIN 0
+# define STDOUT 1
+# define STDERR 2
+
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}				t_list;
+}					t_list;
 
-typedef struct	s_split_next
+typedef struct s_split_next
 {
-	size_t start;
-	size_t len;
-}				t_split_next;
+	size_t			start;
+	size_t			len;
+}					t_split_next;
 
 void			*ft_memset(void *s, int c, size_t len);
 void			ft_bzero(void *s, size_t n);
@@ -50,6 +59,7 @@ size_t			ft_strlcpy(char *dest, const char *src, size_t size);
 size_t			ft_strlcat(char *dest, const char *src, size_t size);
 char			*ft_strnstr(const char *s, const char *to_find, size_t len);
 int				ft_atoi(const char *nptr);
+long			ft_atol(const char *nptr);
 void			*ft_calloc(size_t nmemb, size_t size);
 char			*ft_strdup(const char *s);
 
@@ -73,5 +83,34 @@ void			ft_lstdelone(t_list *lst, void (*del)(void*));
 void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void*));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void *));
+
+# define BWHI	"\033[1;37m"
+# define MAG	"\033[0;35m"
+# define BMAG	"\033[1;35m"
+# define IMAG	"\033[3;35m"
+# define BIMAG	"\033[1;3;35m"
+# define RED	"\033[1;31m"
+# define GRN	"\033[1;32m"
+# define SBLU	"\033[5;3;34m"
+# define DEF	"\033[0m"
+
+int				ft_ps(char *str);
+int				ft_psc(char *str, char *color);
+int				ft_pser(char *str);
+int				ft_pserc(char *str, char *color);
+int				ft_pn(int nbr);
+int				ft_pnc(int nbr, char *color);
+int				ft_pnerc(int nbr, char *color);
+int				ft_nbrlen(int nb);
+int				ft_strcpy(char *dst, const char *src);
+int				ft_abs(int n);
+bool			ft_is_prime(int n);
+bool			ft_is_prime_ul(unsigned long n);
+int				ft_next_prime(int n);
+int				ft_prev_prime(int n);
+unsigned long	ft_next_prime_ul(unsigned long n);
+unsigned long	ft_prev_prime_ul(unsigned long n);
+char			*ft_strjoin_free(char *s1, char *s2,
+					bool const f1, bool const f2);
 
 #endif

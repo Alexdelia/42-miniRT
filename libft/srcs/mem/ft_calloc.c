@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/25 16:06:48 by adelille          #+#    #+#             */
-/*   Updated: 2020/11/17 18:47:10 by adelille         ###   ########.fr       */
+/*   Created: 2020/10/27 16:38:51 by adelille          #+#    #+#             */
+/*   Updated: 2021/03/20 15:23:37 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	int	i;
+	void	*dst;
 
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == (char)c)
-			return ((char*)(s + i));
-		i++;
-	}
-	if (s[i] == (char)c)
-		return ((char*)(s + i));
-	return (NULL);
+	dst = malloc(nmemb * size);
+	if (!dst)
+		return (NULL);
+	ft_bzero(dst, nmemb * size);
+	return (dst);
 }

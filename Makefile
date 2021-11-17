@@ -6,103 +6,139 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2021/02/03 17:19:20 by user42           ###   ########.fr        #
+#    Updated: 2021/11/17 16:02:07 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = miniRT
-CC = clang -Wall -Werror -Wextra
-RM = rm -rf
+NAME =	miniRT
+CC = 	clang
+AR =	ar rcs
+RM = 	rm -rf
 
-LBPATH = ./libft/
-LBNAME = $(LBPATH)libft.a
-LBINC = -I$(LBPATH)
+CFLAGS =	-Wall -Werror -Wextra
+CFLAGS +=	-O2
+#CFLAGS +=	-g
+#CFLAGS +=	-fsanitize=address
 
-MLXPATH = ./mlx/
-MLXNAME = $(MLXPATH)libmlx.a
-MLXINC = -I$(MLXPATH)
-
-SRCSPATH = ./srcs/
-OBJSPATH = ./objs/
-INC = ./includes/
-
-SRCSNAME = main.c \
-	   ft_check.c \
-	   parse/ft_parse.c \
-	   parse/ft_parse_get.c \
-	   parse/ft_parse_init_list.c \
-	   parse/ft_parse_utils1.c \
-	   parse/ft_parse_utils2.c \
-	   parse/ft_parse_utils3.c \
-	   parse/ft_get_obj.c \
-	   parse/ft_get_obj_prdh.c \
-	   ft_render.c \
-	   ft_light.c \
-	   ft_color.c \
-	   ft_phong.c \
-	   intersection/ft_intersection.c \
-	   intersection/ft_sphere.c \
-	   intersection/ft_plane.c \
-	   intersection/ft_square.c \
-	   intersection/ft_triangle.c \
-	   intersection/ft_cylinder.c \
-	   ft_save_bmp.c \
-	   ft_display.c \
-	   ft_utils.c \
-	   ft_vector_math1.c \
-	   ft_vector_math2.c \
-	   ft_vector_math3.c \
-	   ft_fill_struct.c \
-	   ft_free.c \
-	   get_next_line.c \
-	   get_next_line_utils.c
-
-SRCS = $(addprefix $(SRCSPATH), $(SRCSNAME))
-OBJS = $(SRCS:.c=.o)
-#OBJS = $(addprefix $(OBJSPATH), $(OBJSNAME))
+UNAME = $(shell uname)
 
 # GRAPHICAL LFGLAGS (for linux):
+#ifeq ($(shell uname), Linux)
 LDFLAGS		+=	-lXext -lX11
+#else
+	#LDFLAGS		+=	-lmlx -framework OpenGL -framework AppKit
 # -lmlx
 
 # LDFLAGS (math.h)
 LDFLAGS		+=	-lm
 
-all: $(NAME)
+# **************************************************************************** #
+#	MAKEFILE	#
 
-%.o: %.c
-	$(CC) -I$(INC) -Imlx $(LBINC) -c $< -o $@
+MAKEFLAGS += --silent
 
-$(NAME): $(OBJS)
-	make -C $(LBPATH)
-	make -C $(MLXPATH)
-	$(CC) $(OBJS) $(MLXNAME) $(LBNAME) -L$(MLXPATH) -L$(LBPATH) $(LBINC) $(MLXINC) -I$(INC) $(LDFLAGS) -o $(NAME)
-	$(info miniRT compiled !)
+SHELL := bash
 
-$(LIBFTM):
-	make -C $(LBPATH) -f Makefile
+B =		$(shell tput bold)
+BLA =	$(shell tput setaf 0)
+RED =	$(shell tput setaf 1)
+GRE =	$(shell tput setaf 2)
+YEL =	$(shell tput setaf 3)
+BLU =	$(shell tput setaf 4)
+MAG =	$(shell tput setaf 5)
+CYA =	$(shell tput setaf 6)
+WHI =	$(shell tput setaf 7)
+D =		$(shell tput sgr0)
+BEL =	$(shell tput bel)
+CLR =	$(shell tput el 1)
 
-$(MLXM):
-	make -C $(MLXPATH) -f Makefile
+# **************************************************************************** #
+#	 LIB	#
 
-#$(OBJSPATH)%.o : %.c
-#	@mkdir $(OBJSPATH) 2> /dev/null || true
-#	@$(CC) -I $(INC) -c $< -o $@
+LIBPATH =	./libft/
+LIBNAME =	$(LIBPATH)libft.a
+LIBINC =	-I$(LIBPATH)
 
-libft:	$(LIBFTM)
+#ifeq ($(shell uname), Linux)
+MLXPATH =	./mlx/
+#else
+#	MLXPATH	=	./mlx_macos/
+#endif
 
-mlx:	$(MLXM)
+MLXNAME =	$(MLXPATH)libmlx.a
+MLXINC =	-I$(MLXPATH)
+
+# **************************************************************************** #
+#	SRCS	#
+
+SRCSPATH =	./srcs/
+OBJSPATH =	./objs/
+INC =		./includes/
+
+SRCS =		$(wildcard $(SRCSPATH)*.c) $(wildcard $(SRCSPATH)**/*.c)
+SRCSNAME =	$(subst $(SRCSPATH), , $(SRCS))
+
+OBJSNAME =	$(SRCSNAME:.c=.o)
+OBJS =		$(addprefix $(OBJSPATH), $(OBJSNAME))
+
+#%.o: %.c
+#	$(CC) $(FLAGS) -Imlx $(BUFFER) -I$(INC) -c $< -o $(OBJSPATH)$(notdir $@)
+
+# *************************************************************************** #
+
+define	progress_bar
+	i=0
+	while [[ $$i -le $(words $(SRCS)) ]] ; do \
+		printf " " ; \
+		((i = i + 1)) ; \
+	done
+	printf "$(B)]\r[$(GRE)"
+endef
+
+# *************************************************************************** #
+#	RULES	#
+
+ifeq ($(UNAME), Linux)
+all:		launch $(NAME)
+	@printf "\n$(B)$(MAG)$(NAME) compiled$(D)\n"
+else
+all:
+	@echo "$(B)$(RED)Error: Only Linux supported.$(D)"
+endif
+
+launch:
+	$(call progress_bar)
+
+$(NAME):	$(OBJS) lib mlx
+	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJS) $(LIBNAME) $(MLXNAME) -o $(NAME)
+
+$(OBJSPATH)%.o: $(SRCSPATH)%.c
+	@mkdir -p $(dir $@) # 2> /dev/null || true
+	$(CC) $(CFLAGS) -Imlx -I$(INC) -c $< -o $@
+	@printf "█"
+
+lib:
+	@printf "$(D)$(B)$(BLU)\n$(NAME) objects compiled\n\n$(D)"
+	@make -C $(LIBPATH)
+
+mlx:
+	@make -C $(MLXPATH) > /dev/null 2>&1 || true
+	@printf "$(B)$(CYA)$(MLXNAME) compiled\n$(D)"
 
 clean:
-	$(RM) $(OBJS)
-	make -C $(LBPATH) -f Makefile clean
-	make -C $(MLXPATH) -f Makefile clean
-	#@rmdir $(OBJSPATH) 2> /dev/null || true
+	@$(RM) $(OBJSNAME)
+	@make clean -C $(LIBPATH)
+	@make clean -C $(MLXPATH) > /dev/null 2>&1 || true
+	@echo "$(B)Cleared$(D)"
 
-fclean: clean
-	$(RM) $(NAME) $(MLXM)
-	make -C $(LBPATH) -f Makefile fclean
 
-re: fclean $(NAME)
+fclean:		clean
+	@$(RM) $(OBJSPATH)
+	@$(RM) $(NAME)
+	@make fclean -C $(LIBPATH)
 
-.PHONY: all, clean, fclean, re, libft, mlx
+re:			fclean all
+
+.PHONY: all clean fclean re lib mlx
+
+# **************************************************************************** #

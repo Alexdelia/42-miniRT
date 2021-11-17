@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/15 20:15:26 by adelille          #+#    #+#             */
-/*   Updated: 2020/11/15 20:17:16 by adelille         ###   ########.fr       */
+/*   Created: 2021/09/26 17:49:57 by adelille          #+#    #+#             */
+/*   Updated: 2021/09/27 15:22:40 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+int	ft_strcpy(char *dst, const char *src)
 {
-	t_list	*elt;
+	int	i;
+	int	size;
 
-	if (!(elt = (t_list*)malloc(sizeof(*elt))))
-		return (NULL);
-	elt->content = content;
-	elt->next = NULL;
-	return (elt);
+	i = 0;
+	size = ft_strlen(src);
+	while (i < size && src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (i);
 }

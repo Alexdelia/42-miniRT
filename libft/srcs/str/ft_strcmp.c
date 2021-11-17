@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adelille <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/25 16:11:08 by adelille          #+#    #+#             */
-/*   Updated: 2020/11/17 13:44:47 by user42           ###   ########.fr       */
+/*   Created: 2021/03/23 21:09:30 by adelille          #+#    #+#             */
+/*   Updated: 2021/03/23 21:15:59 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	int	i;
 
 	i = 0;
-	while (s[i])
-		i++;
-	while (i >= 0)
+	while (s1[i] && s2[i])
 	{
-		if (s[i] == (char)c)
-			return ((char*)(s + i));
-		i--;
+		if (!(s1[i] == s2[i]))
+			return (s1[i] - s2[i]);
+		i++;
 	}
-	return (NULL);
+	return (s1[i] - s2[i]);
 }
