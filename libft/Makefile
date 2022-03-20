@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2021/11/17 15:58:50 by adelille         ###   ########.fr        #
+#    Updated: 2022/03/20 16:38:09 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -109,23 +109,15 @@ $(OBJSPATH)%.o: $(SRCSPATH)%.c
 	$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
 	@printf "█"
 	
-#$(LBM):
-#	@make -C $(LBPATH)
-
-#lib:		$(LIBFTM)
-#	@echo "$(B)$(MAG)$(BEL)Libft compiled.$(D)"
-
 clean:
 	@$(RM) $(OBJSPATH)
-# @make clean -C $(LBPATH)
 
 fclean:		clean
 	@$(RM) $(OBJSPATH)
 	@$(RM) $(NAME)
-# @make fclean -C $(LBPATH)
 
 re:			fclean all
 
-.PHONY: all clean fclean re #lib
+.PHONY: all clean fclean re
 
 # **************************************************************************** #

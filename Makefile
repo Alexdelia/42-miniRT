@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2021/11/17 16:02:07 by adelille         ###   ########.fr        #
+#    Updated: 2022/03/20 16:39:38 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ LDFLAGS		+=	-lm
 # **************************************************************************** #
 #	MAKEFILE	#
 
-MAKEFLAGS += --silent
+#MAKEFLAGS += --silent
 
 SHELL := bash
 
@@ -109,7 +109,7 @@ endif
 launch:
 	$(call progress_bar)
 
-$(NAME):	$(OBJS) lib mlx
+$(NAME):	$(OBJS) $(LIBNAME) $(MLXNAME)
 	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJS) $(LIBNAME) $(MLXNAME) -o $(NAME)
 
 $(OBJSPATH)%.o: $(SRCSPATH)%.c
@@ -117,28 +117,28 @@ $(OBJSPATH)%.o: $(SRCSPATH)%.c
 	$(CC) $(CFLAGS) -Imlx -I$(INC) -c $< -o $@
 	@printf "█"
 
-lib:
+$(LIBNAME):
 	@printf "$(D)$(B)$(BLU)\n$(NAME) objects compiled\n\n$(D)"
-	@make -C $(LIBPATH)
+	@$(MAKE) -C $(LIBPATH)
 
-mlx:
-	@make -C $(MLXPATH) > /dev/null 2>&1 || true
+$(MLXNAME):
+	@$(MAKE) -C $(MLXPATH) > /dev/null 2>&1 || true
 	@printf "$(B)$(CYA)$(MLXNAME) compiled\n$(D)"
 
 clean:
 	@$(RM) $(OBJSNAME)
-	@make clean -C $(LIBPATH)
-	@make clean -C $(MLXPATH) > /dev/null 2>&1 || true
+	@$(MAKE) clean -C $(LIBPATH)
+	@$(MAKE) clean -C $(MLXPATH) > /dev/null 2>&1 || true
 	@echo "$(B)Cleared$(D)"
 
 
 fclean:		clean
 	@$(RM) $(OBJSPATH)
 	@$(RM) $(NAME)
-	@make fclean -C $(LIBPATH)
+	@$(MAKE) fclean -C $(LIBPATH)
 
 re:			fclean all
 
-.PHONY: all clean fclean re lib mlx
+.PHONY: all clean fclean re
 
 # **************************************************************************** #
